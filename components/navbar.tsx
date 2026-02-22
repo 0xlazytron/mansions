@@ -10,7 +10,7 @@ import { useWallet } from "@/hooks/use-wallet";
 const socialLinks = [
   { icon: Twitter, href: "https://x.com/m3th1ld3", label: "Twitter" },
   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Instagram, href: "http://instagram.com/m3th1ld3", label: "Instagram" },
   { icon: Github, href: "https://github.com", label: "GitHub" },
 ];
 
