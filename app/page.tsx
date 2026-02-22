@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
+import { AboutArtworkSection } from "@/components/about-artwork-section";
 import { NFTCardsSection } from "@/components/nft-cards-section";
 import { HowItWorksSection } from "@/components/how-it-works-section";
 
@@ -22,6 +23,9 @@ export default function Home() {
         <Navbar />
         <section id="hero">
           <HeroSection />
+        </section>
+        <section id="about">
+          <AboutArtworkSection />
         </section>
         <NFTCardsSection />
         <section id="how-it-works">
