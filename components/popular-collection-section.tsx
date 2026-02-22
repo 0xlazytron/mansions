@@ -33,7 +33,7 @@ function CollectionCard({
             </div>
           </div>
           <p className="text-[#9a8588] text-[10px] uppercase font-black tracking-widest mb-4 inline-block px-2 py-0.5 bg-[#2a2123]/50 rounded border border-[#4a3540]/20">
-            {card.role}
+            {card.artistName}
           </p>
 
           {/* NFT Image */}

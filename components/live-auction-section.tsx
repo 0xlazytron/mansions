@@ -97,7 +97,7 @@ function AuctionCardComponent({
         <p
           className={`text-[#9a8588] ${isFeatured ? "text-sm" : "text-xs"} uppercase font-black tracking-widest`}
         >
-          {card.artistName} • {card.role}
+          {card.artistName}
         </p>
       </div>
 

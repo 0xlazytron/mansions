@@ -78,7 +78,7 @@ function NFTCardComponent({
           <VerifiedBadge />
         </div>
         <p className="text-[#9a8588] text-[10px] uppercase font-black tracking-widest bg-[#2a2123]/50 inline-block px-2 py-0.5 rounded-md border border-[#4a3540]/20">
-          {card.artistName} • {card.role}
+          {card.artistName}
         </p>
       </div>
 
