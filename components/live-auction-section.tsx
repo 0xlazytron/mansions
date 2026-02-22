@@ -304,11 +304,11 @@ export function LiveAuctionSection() {
 
             {/* Title */}
             <h2 className="text-[#e8dde0] text-5xl sm:text-6xl lg:text-8xl font-black uppercase leading-[0.85] tracking-tighter font-cormorant">
-              ULTRA
+              LIVE
               <br />
-              MODERN
+              AUCTION
               <br />
-              <span className="text-[#b8707e]">MANSION</span>
+              <span className="text-[#b8707e]">COMING SOON</span>
             </h2>
 
             {/* Creator and Agreement Section */}
