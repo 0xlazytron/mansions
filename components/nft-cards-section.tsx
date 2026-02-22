@@ -137,7 +137,7 @@ export function NFTCardsSection() {
       {/* Section Header */}
       <div className="relative z-10 text-center mb-12">
         <h2 className="text-[#e8dde0] font-black text-4xl md:text-5xl font-cormorant tracking-tight mb-4">
-          POPULAR <span className="text-[#b8707e]">MANSIONS</span>
+          POPULAR <span className="text-[#b8707e]">COLLECTION</span>
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#4a3540] to-transparent mx-auto" />
       </div>
