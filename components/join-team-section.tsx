@@ -1,5 +1,7 @@
 "use client";
 
+import { Instagram } from "lucide-react";
+
 const nftLinks = [
   { label: "Opensea", href: "https://opensea.io/M3th1ld3" },
   { label: "Manifold", href: "https://manifold.xyz/@m3th1ld3" },
@@ -7,10 +9,26 @@ const nftLinks = [
   { label: "Magic Eden", href: "https://magiceden.us/collections/base/0xd0f68bd2a6e0e007ffe05b0e2f717075abe38b9a" },
 ];
 
+function SubstackIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24l9.54-5.39L20.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
-  { label: "Substack", href: "https://m3th1ld3.substack.com/" },
-  { label: "Instagram", href: "http://instagram.com/m3th1ld3" },
-  { label: "X / Twitter", href: "https://x.com/m3th1ld3" },
+  { label: "Substack", href: "https://m3th1ld3.substack.com/", icon: SubstackIcon },
+  { label: "Instagram", href: "http://instagram.com/m3th1ld3", icon: Instagram },
+  { label: "X", href: "https://x.com/m3th1ld3", icon: XIcon },
 ];
 
 export function JoinTeamSection() {
@@ -43,16 +61,17 @@ export function JoinTeamSection() {
           <p className="text-[#9a8588] text-xs uppercase tracking-widest font-semibold mb-4">
             Follow
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+          <div className="flex items-center justify-center gap-3 mb-10">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-[#1a1517]/60 backdrop-blur-md text-[#c4b0b4] hover:text-[#e8dde0] font-medium rounded-xl border border-[#4a3540]/40 hover:border-[#b8707e] transition-all text-sm"
+                className="w-11 h-11 rounded-full flex items-center justify-center bg-[#1a1517]/60 backdrop-blur-md text-[#c4b0b4] hover:text-[#e8dde0] border border-[#4a3540]/40 hover:border-[#b8707e] transition-all hover:-translate-y-1"
+                aria-label={link.label}
               >
-                {link.label}
+                <link.icon className="w-5 h-5" />
               </a>
             ))}
           </div>
