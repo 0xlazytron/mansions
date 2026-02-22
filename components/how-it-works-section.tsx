@@ -29,21 +29,21 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-to-mint"
-      className="relative bg-transparent px-4 md:px-6 py-24 md:py-32 overflow-hidden"
+      className="relative bg-transparent px-4 md:px-6 py-32 md:py-40 overflow-hidden"
     >
       {/* Decorative Mysterious Ambient Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#4a3b69]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#4a3540]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-rose-800/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 font-cinzel tracking-tight">
-          <span className="text-[#e0d4ee]">HOW TO </span>
-          <span className="text-[#9a7fbf]">MINT</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 font-cormorant tracking-tight">
+          <span className="text-[#e8dde0]">HOW TO </span>
+          <span className="text-[#b8707e]">MINT</span>
         </h2>
 
         {/* Subtitle */}
-        <p className="text-[#8a7ba0] max-w-2xl mx-auto mb-16 md:mb-24 leading-relaxed text-sm md:text-base px-4 font-medium uppercase tracking-widest opacity-80">
+        <p className="text-[#9a8588] max-w-2xl mx-auto mb-16 md:mb-24 leading-relaxed text-sm md:text-base px-4 font-medium uppercase tracking-widest opacity-80">
           Ready to join the NFT Mansions universe? Follow these simple steps to
           mint your very own unique Mansions NFT.
         </p>
@@ -55,7 +55,7 @@ export function HowItWorksSection() {
               {/* Icon circle with arc */}
               <div className="relative mb-8 transition-transform duration-500 group-hover:scale-110">
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-[#4a3b69]/20 rounded-full blur-2xl group-hover:bg-[#4a3b69]/30 transition-all" />
+                <div className="absolute inset-0 bg-[#4a3540]/20 rounded-full blur-2xl group-hover:bg-[#4a3540]/30 transition-all" />
 
                 {/* SVG Container */}
                 <svg
@@ -67,9 +67,9 @@ export function HowItWorksSection() {
                     cx="56"
                     cy="56"
                     r="50"
-                    fill="#181524"
+                    fill="#1a1517"
                     fillOpacity="0.8"
-                    stroke="#4a3b69"
+                    stroke="#4a3540"
                     strokeOpacity="0.3"
                     strokeWidth="2"
                     className="backdrop-blur-xl"
@@ -78,30 +78,30 @@ export function HowItWorksSection() {
                   <path
                     d="M 16 56 A 40 40 0 0 1 96 56"
                     fill="none"
-                    stroke="#9a7fbf"
+                    stroke="#b8707e"
                     strokeWidth="3"
                     strokeLinecap="round"
-                    className="opacity-80 shadow-[0_0_10px_rgba(154,127,191,0.5)]"
+                    className="opacity-80 shadow-[0_0_10px_rgba(184,112,126,0.5)]"
                   />
                 </svg>
                 {/* Icon */}
                 <div className="absolute inset-0 flex items-center justify-center z-20">
-                  <step.icon className="w-8 h-8 md:w-10 md:h-10 text-[#c8b8db] group-hover:text-[#e0d4ee] transition-colors duration-300" />
+                  <step.icon className="w-8 h-8 md:w-10 md:h-10 text-[#d4a5ae] group-hover:text-[#e8dde0] transition-colors duration-300" />
                 </div>
 
                 {/* Step indicator */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#2a2438] rounded-full flex items-center justify-center border border-[#4a3b69]/50 text-[#9a7fbf] font-black text-xs z-30 shadow-lg">
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#2a2123] rounded-full flex items-center justify-center border border-[#4a3540]/50 text-[#b8707e] font-black text-xs z-30 shadow-lg">
                   0{index + 1}
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-[#e0d4ee] text-xl md:text-2xl font-black font-cinzel tracking-tighter mb-4 group-hover:text-[#9a7fbf] transition-colors duration-300">
+              <h3 className="text-[#e8dde0] text-xl md:text-2xl font-black font-cormorant tracking-tighter mb-4 group-hover:text-[#b8707e] transition-colors duration-300">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[#8a7ba0] text-sm leading-relaxed px-4 font-medium">
+              <p className="text-[#9a8588] text-sm leading-relaxed px-4 font-medium">
                 {step.description}
               </p>
             </div>

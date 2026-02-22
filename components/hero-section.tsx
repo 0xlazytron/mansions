@@ -46,69 +46,69 @@ export function HeroSection() {
         {/* Center Content */}
         <div className="text-center z-20 pt-8 md:pt-12 px-4 w-full max-w-[100vw]">
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cinzel"
-            style={{ color: "#c8b8db" }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant"
+            style={{ color: "#d4a5ae" }}
           >
             Mansions
           </h1>
           <div className="flex flex-col items-center justify-center gap-6 mb-10 md:mb-14">
             <div className="flex items-center justify-center gap-0">
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black px-4 md:px-6 py-2 -rotate-3 inline-block font-cinzel"
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black px-4 md:px-6 py-2 -rotate-3 inline-block font-cormorant"
                 style={{
-                  backgroundColor: "rgba(107, 78, 143, 0.7)",
-                  color: "#e0d4ee",
+                  backgroundColor: "rgba(122, 74, 88, 0.7)",
+                  color: "#e8dde0",
                 }}
               >
                 of the
               </span>
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cinzel"
-                style={{ color: "#d6cce5" }}
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant"
+                style={{ color: "#ddd0d4" }}
               >
                 Moon
               </span>
             </div>
             <p
-              className="text-lg sm:text-xl md:text-2xl font-medium font-cinzel tracking-widest uppercase"
-              style={{ color: "#9a8bb0" }}
+              className="text-lg sm:text-xl md:text-2xl font-medium font-cormorant tracking-widest uppercase"
+              style={{ color: "#a68b8f" }}
             >
               An Astrological System Rendered as Digital Art
             </p>
           </div>
 
           {/* Stats */}
-          <div className="flex items-center justify-center gap-10 sm:gap-14 md:gap-20 mb-10 md:mb-14">
-            <div className="text-center group cursor-pointer">
+          <div className="flex items-center justify-center gap-12 sm:gap-16 md:gap-24 mb-12 md:mb-16">
+            <div className="text-center">
               <p
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors"
-                style={{ color: "#c8b8db" }}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
+                style={{ color: "#d4a5ae" }}
               >
                 69K+
               </p>
-              <p className="text-sm md:text-base" style={{ color: "#8a7ba0" }}>
+              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
                 Artwork
               </p>
             </div>
-            <div className="text-center group cursor-pointer">
+            <div className="text-center">
               <p
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors"
-                style={{ color: "#c8b8db" }}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
+                style={{ color: "#d4a5ae" }}
               >
                 21K+
               </p>
-              <p className="text-sm md:text-base" style={{ color: "#8a7ba0" }}>
+              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
                 Collectors
               </p>
             </div>
-            <div className="text-center group cursor-pointer">
+            <div className="text-center">
               <p
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors"
-                style={{ color: "#c8b8db" }}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
+                style={{ color: "#d4a5ae" }}
               >
                 8K+
               </p>
-              <p className="text-sm md:text-base" style={{ color: "#8a7ba0" }}>
+              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
                 Artist
               </p>
             </div>
@@ -119,16 +119,16 @@ export function HeroSection() {
             onClick={handleDiscoverNFTs}
             className="font-semibold px-10 md:px-14 py-4 md:py-5 rounded-full transition-all hover:scale-105 text-lg md:text-xl"
             style={{
-              backgroundColor: "rgba(107, 78, 143, 0.65)",
-              color: "#e0d4ee",
-              border: "1px solid rgba(160, 130, 190, 0.3)",
+              backgroundColor: "rgba(122, 74, 88, 0.65)",
+              color: "#e8dde0",
+              border: "1px solid rgba(180, 120, 135, 0.3)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(120, 88, 160, 0.8)";
+              e.currentTarget.style.backgroundColor = "rgba(140, 85, 98, 0.8)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor =
-                "rgba(107, 78, 143, 0.65)";
+                "rgba(122, 74, 88, 0.65)";
             }}
           >
             Discover NFTs
@@ -150,7 +150,7 @@ export function HeroSection() {
             />
             <text
               className="text-[10px] uppercase tracking-widest"
-              style={{ fill: "#8a7ba0" }}
+              style={{ fill: "#9a8588" }}
             >
               <textPath href="#circlePath">
                 • Mint Now • Collect Assets •
@@ -162,7 +162,7 @@ export function HeroSection() {
               <svg
                 viewBox="0 0 24 24"
                 className="w-5 h-5 md:w-6 md:h-6"
-                style={{ color: "#9a7fbf" }}
+                style={{ color: "#b8707e" }}
               >
                 <path
                   fill="currentColor"

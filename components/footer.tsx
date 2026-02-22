@@ -23,9 +23,9 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#181524]/95 backdrop-blur-2xl pt-16 md:pt-24 pb-8 md:pb-12 border-t border-[#4a3b69]/40 overflow-hidden">
+    <footer className="relative bg-[#1a1517]/95 backdrop-blur-2xl pt-16 md:pt-24 pb-8 md:pb-12 border-t border-[#4a3540]/40 overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-[#4a3b69]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-[#4a3540]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -36,7 +36,7 @@ export function Footer() {
               href="/"
               className="flex items-center gap-4 mb-6 md:mb-8 w-fit group"
             >
-              <div className="w-12 h-12 relative overflow-hidden rounded-xl border border-[#4a3b69]/40 shadow-[0_0_20px_rgba(107,78,143,0.2)]">
+              <div className="w-12 h-12 relative overflow-hidden rounded-xl border border-[#4a3540]/40 shadow-[0_0_20px_rgba(122,74,88,0.2)]">
                 <Image
                   src="/logo.jpg"
                   alt="NFT Mansions Logo"
@@ -45,13 +45,13 @@ export function Footer() {
                   unoptimized
                 />
               </div>
-              <span className="text-[#e0d4ee] font-black text-xl md:text-2xl tracking-tighter font-cinzel">
+              <span className="text-[#e8dde0] font-black text-xl md:text-2xl tracking-tighter font-cormorant">
                 MANSIONS
               </span>
             </Link>
 
             {/* Description */}
-            <p className="text-[#8a7ba0] text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-sm">
+            <p className="text-[#9a8588] text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-sm">
               The premier destination for luxury digital real estate. Collect,
               own, and trade exclusive ultra-modern mansion NFTs in the most
               elite metaverse marketplace.
@@ -65,7 +65,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-[#181524]/80 text-[#8a7ba0] border border-[#4a3b69]/40 hover:bg-[#4a3b69]/20 hover:text-[#e0d4ee] hover:border-[#9a7fbf] hover:-translate-y-1 shadow-sm"
+                  className="w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-[#1a1517]/80 text-[#9a8588] border border-[#4a3540]/40 hover:bg-[#4a3540]/20 hover:text-[#e8dde0] hover:border-[#b8707e] hover:-translate-y-1 shadow-sm"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div className="flex flex-col">
-            <h3 className="text-[#e0d4ee] font-black text-sm tracking-[0.2em] mb-6 md:mb-8 font-cinzel uppercase">
+            <h3 className="text-[#e8dde0] font-black text-sm tracking-[0.2em] mb-6 md:mb-8 font-cormorant uppercase">
               Mansions
             </h3>
             <nav aria-label="Company navigation">
@@ -85,9 +85,9 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[#8a7ba0] text-sm hover:text-[#9a7fbf] transition-colors font-medium flex items-center gap-2 group"
+                      className="text-[#9a8588] text-sm hover:text-[#b8707e] transition-colors font-medium flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 bg-[#4a3b69] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="w-1 h-1 bg-[#4a3540] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                       {link.label}
                     </Link>
                   </li>
@@ -98,7 +98,7 @@ export function Footer() {
 
           {/* Help Links */}
           <div className="flex flex-col">
-            <h3 className="text-[#e0d4ee] font-black text-sm tracking-[0.2em] mb-6 md:mb-8 font-cinzel uppercase">
+            <h3 className="text-[#e8dde0] font-black text-sm tracking-[0.2em] mb-6 md:mb-8 font-cormorant uppercase">
               HELP
             </h3>
             <nav aria-label="Help navigation">
@@ -107,9 +107,9 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[#8a7ba0] text-sm hover:text-[#9a7fbf] transition-colors font-medium flex items-center gap-2 group"
+                      className="text-[#9a8588] text-sm hover:text-[#b8707e] transition-colors font-medium flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 bg-[#4a3b69] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="w-1 h-1 bg-[#4a3540] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                       {link.label}
                     </Link>
                   </li>
@@ -120,8 +120,8 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-[#4a3b69]/30">
-          <p className="text-[#8a7ba0]/60 text-xs md:text-sm text-center font-medium tracking-wide">
+        <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-[#4a3540]/30">
+          <p className="text-[#9a8588]/60 text-xs md:text-sm text-center font-medium tracking-wide">
             © 2026 MANSIONS SALES. All rights reserved. Registered on Ethereum
             Blockchain.
           </p>

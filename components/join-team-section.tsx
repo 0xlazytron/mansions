@@ -12,19 +12,19 @@ export function JoinTeamSection() {
   return (
     <section
       id="join-team"
-      className="relative bg-transparent py-24 md:py-32 overflow-hidden"
+      className="relative bg-transparent py-32 md:py-40 overflow-hidden"
     >
       {/* Ambient background effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#4a3b69]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#4a3540]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 text-center">
         {/* Heading */}
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e0d4ee] mb-6 md:mb-8 tracking-tight font-cinzel leading-none">
-          WANT <span className="text-[#9a7fbf]">JOIN</span> THE TEAM?
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8dde0] mb-6 md:mb-8 tracking-tight font-cormorant leading-none">
+          WANT <span className="text-[#b8707e]">JOIN</span> THE TEAM?
         </h2>
 
         {/* Subtitle */}
-        <p className="text-[#8a7ba0] text-lg md:text-xl mb-10 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-[#9a8588] text-lg md:text-xl mb-10 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
           Becomes a part of the community and has a say in continuous
           <span className="hidden sm:inline">
             <br />
@@ -37,17 +37,17 @@ export function JoinTeamSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
           <button
             onClick={handleGetStarted}
-            className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-gradient-to-r from-[#4a3b69] to-[#2a2438] text-[#e0d4ee] font-black rounded-2xl hover:from-[#5b4a7d] hover:to-[#3b2e55] transition-all hover:-translate-y-1 min-w-[200px] md:min-w-[240px] text-sm md:text-base uppercase tracking-widest border border-[#6b4e8f]/50 shadow-[0_10px_30px_rgba(107,78,143,0.3)]"
+            className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-gradient-to-r from-[#4a3540] to-[#2a2123] text-[#e8dde0] font-black rounded-2xl hover:from-[#6b4555] hover:to-[#3b2b30] transition-all hover:-translate-y-1 min-w-[200px] md:min-w-[240px] text-sm md:text-base uppercase tracking-widest border border-[#7a4a58]/50 shadow-[0_10px_30px_rgba(122,74,88,0.3)]"
             aria-label="Get Started"
           >
             Explore Collection
           </button>
           <button
             onClick={handleJoinDiscord}
-            className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-[#181524]/60 backdrop-blur-md text-[#e0d4ee] font-black rounded-2xl border border-[#4a3b69] hover:bg-[#4a3b69]/20 hover:border-[#9a7fbf] transition-all hover:-translate-y-1 min-w-[200px] md:min-w-[240px] flex items-center justify-center gap-3 text-sm md:text-base uppercase tracking-widest shadow-lg"
+            className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-[#1a1517]/60 backdrop-blur-md text-[#e8dde0] font-black rounded-2xl border border-[#4a3540] hover:bg-[#4a3540]/20 hover:border-[#b8707e] transition-all hover:-translate-y-1 min-w-[200px] md:min-w-[240px] flex items-center justify-center gap-3 text-sm md:text-base uppercase tracking-widest shadow-lg"
             aria-label="Join Discord"
           >
-            <DiscordIcon className="w-5 h-5 md:w-6 md:h-6 text-[#9a7fbf]" />
+            <DiscordIcon className="w-5 h-5 md:w-6 md:h-6 text-[#b8707e]" />
             Join Discord
           </button>
         </div>

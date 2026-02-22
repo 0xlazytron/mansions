@@ -47,7 +47,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6 md:px-10 lg:px-16 py-4 ${
         isScrolled
-          ? "bg-[#181524]/80 backdrop-blur-xl border-b border-[#4a3b69]/40 py-3 shadow-lg"
+          ? "bg-[#1a1517]/80 backdrop-blur-xl border-b border-[#4a3540]/40 py-3 shadow-lg"
           : "bg-transparent py-5"
       }`}
     >
@@ -68,8 +68,8 @@ export function Navbar() {
             />
           </div>
           <span
-            className="font-bold text-lg tracking-wide font-cinzel"
-            style={{ color: "#e0d4ee" }}
+            className="font-bold text-lg tracking-wide font-cormorant"
+            style={{ color: "#e8dde0" }}
           >
             MANSIONS
           </span>
@@ -79,12 +79,12 @@ export function Navbar() {
           <button
             onClick={() => scrollToSection("home")}
             className="transition-colors text-sm font-medium"
-            style={{ color: "#b8a8cc" }}
+            style={{ color: "#c4a5ab" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#e0d4ee";
+              e.currentTarget.style.color = "#e8dde0";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#b8a8cc";
+              e.currentTarget.style.color = "#c4a5ab";
             }}
           >
             Home
@@ -92,12 +92,12 @@ export function Navbar() {
           <button
             onClick={() => scrollToSection("how-to-mint")}
             className="transition-colors text-sm font-medium px-2"
-            style={{ color: "#b8a8cc" }}
+            style={{ color: "#c4a5ab" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#e0d4ee";
+              e.currentTarget.style.color = "#e8dde0";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#b8a8cc";
+              e.currentTarget.style.color = "#c4a5ab";
             }}
           >
             How it Works
@@ -105,12 +105,12 @@ export function Navbar() {
           <button
             onClick={() => scrollToSection("collections")}
             className="transition-colors text-sm font-medium"
-            style={{ color: "#b8a8cc" }}
+            style={{ color: "#c4a5ab" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#e0d4ee";
+              e.currentTarget.style.color = "#e8dde0";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#b8a8cc";
+              e.currentTarget.style.color = "#c4a5ab";
             }}
           >
             Collection
@@ -118,12 +118,12 @@ export function Navbar() {
           <button
             onClick={() => scrollToSection("auctions")}
             className="transition-colors text-sm font-medium"
-            style={{ color: "#b8a8cc" }}
+            style={{ color: "#c4a5ab" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#e0d4ee";
+              e.currentTarget.style.color = "#e8dde0";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#b8a8cc";
+              e.currentTarget.style.color = "#c4a5ab";
             }}
           >
             Auctions
@@ -131,12 +131,12 @@ export function Navbar() {
           <button
             onClick={() => scrollToSection("join-team")}
             className="transition-colors text-sm font-medium"
-            style={{ color: "#b8a8cc" }}
+            style={{ color: "#c4a5ab" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#e0d4ee";
+              e.currentTarget.style.color = "#e8dde0";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#b8a8cc";
+              e.currentTarget.style.color = "#c4a5ab";
             }}
           >
             Join Team
@@ -153,12 +153,12 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"
-                style={{ color: "#8a7ba0" }}
+                style={{ color: "#9a8588" }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#c8b8db";
+                  e.currentTarget.style.color = "#d4a5ae";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#8a7ba0";
+                  e.currentTarget.style.color = "#9a8588";
                 }}
                 aria-label={social.label}
               >
@@ -173,21 +173,21 @@ export function Navbar() {
             }
             className="hidden md:block font-semibold px-6 py-2 rounded-lg transition-all text-sm"
             style={{
-              background: "linear-gradient(to right, #6b4e8f, #5a3e7d)",
-              color: "#e0d4ee",
-              boxShadow: "0 0 15px rgba(107, 78, 143, 0.3)",
+              background: "linear-gradient(to right, #7a4a58, #6a3d4d)",
+              color: "#e8dde0",
+              boxShadow: "0 0 15px rgba(122, 74, 88, 0.3)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background =
-                "linear-gradient(to right, #7b5e9f, #6a4e8d)";
+                "linear-gradient(to right, #8a5a68, #7a4a58)";
               e.currentTarget.style.boxShadow =
-                "0 0 20px rgba(107, 78, 143, 0.5)";
+                "0 0 20px rgba(122, 74, 88, 0.5)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background =
-                "linear-gradient(to right, #6b4e8f, #5a3e7d)";
+                "linear-gradient(to right, #7a4a58, #6a3d4d)";
               e.currentTarget.style.boxShadow =
-                "0 0 15px rgba(107, 78, 143, 0.3)";
+                "0 0 15px rgba(122, 74, 88, 0.3)";
             }}
           >
             {isConnected ? formatAddress(account!) : "Connect Wallet"}
@@ -197,7 +197,7 @@ export function Navbar() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg transition-colors"
-            style={{ color: "#e0d4ee" }}
+            style={{ color: "#e8dde0" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor =
                 "rgba(255, 255, 255, 0.1)";
@@ -218,17 +218,17 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a0e17] border-t border-[#2a2438] z-50">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#100d0e] border-t border-[#2a2123] z-50">
           <div className="flex flex-col p-4 gap-4">
             <button
               onClick={() => scrollToSection("home")}
               className="transition-colors text-base py-2 text-left font-medium"
-              style={{ color: "#b8a8cc" }}
+              style={{ color: "#c4a5ab" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#e0d4ee";
+                e.currentTarget.style.color = "#e8dde0";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#b8a8cc";
+                e.currentTarget.style.color = "#c4a5ab";
               }}
             >
               Home
@@ -236,12 +236,12 @@ export function Navbar() {
             <button
               onClick={() => scrollToSection("how-to-mint")}
               className="transition-colors text-base py-2 text-left font-medium"
-              style={{ color: "#b8a8cc" }}
+              style={{ color: "#c4a5ab" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#e0d4ee";
+                e.currentTarget.style.color = "#e8dde0";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#b8a8cc";
+                e.currentTarget.style.color = "#c4a5ab";
               }}
             >
               How it Works
@@ -249,12 +249,12 @@ export function Navbar() {
             <button
               onClick={() => scrollToSection("collections")}
               className="transition-colors text-base py-2 text-left font-medium"
-              style={{ color: "#b8a8cc" }}
+              style={{ color: "#c4a5ab" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#e0d4ee";
+                e.currentTarget.style.color = "#e8dde0";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#b8a8cc";
+                e.currentTarget.style.color = "#c4a5ab";
               }}
             >
               Collection
@@ -262,12 +262,12 @@ export function Navbar() {
             <button
               onClick={() => scrollToSection("auctions")}
               className="transition-colors text-base py-2 text-left font-medium"
-              style={{ color: "#b8a8cc" }}
+              style={{ color: "#c4a5ab" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#e0d4ee";
+                e.currentTarget.style.color = "#e8dde0";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#b8a8cc";
+                e.currentTarget.style.color = "#c4a5ab";
               }}
             >
               Auctions
@@ -275,12 +275,12 @@ export function Navbar() {
             <button
               onClick={() => scrollToSection("join-team")}
               className="transition-colors text-base py-2 text-left font-medium"
-              style={{ color: "#b8a8cc" }}
+              style={{ color: "#c4a5ab" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#e0d4ee";
+                e.currentTarget.style.color = "#e8dde0";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#b8a8cc";
+                e.currentTarget.style.color = "#c4a5ab";
               }}
             >
               Join Team
@@ -293,12 +293,12 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors"
-                  style={{ color: "#8a7ba0" }}
+                  style={{ color: "#9a8588" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#c8b8db";
+                    e.currentTarget.style.color = "#d4a5ae";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#8a7ba0";
+                    e.currentTarget.style.color = "#9a8588";
                   }}
                   aria-label={social.label}
                 >
@@ -317,16 +317,16 @@ export function Navbar() {
               }}
               className="font-semibold px-6 py-3 rounded-lg transition-colors text-sm mt-2 text-center"
               style={{
-                background: "linear-gradient(to right, #6b4e8f, #5a3e7d)",
-                color: "#e0d4ee",
+                background: "linear-gradient(to right, #7a4a58, #6a3d4d)",
+                color: "#e8dde0",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background =
-                  "linear-gradient(to right, #7b5e9f, #6a4e8d)";
+                  "linear-gradient(to right, #8a5a68, #7a4a58)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background =
-                  "linear-gradient(to right, #6b4e8f, #5a3e7d)";
+                  "linear-gradient(to right, #7a4a58, #6a3d4d)";
               }}
             >
               {isConnected ? formatAddress(account!) : "Connect Wallet"}

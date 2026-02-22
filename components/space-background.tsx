@@ -4,33 +4,29 @@ import { useEffect, useRef, useState } from "react";
 
 interface SpaceObject {
   id: number;
-  type: "star" | "twinkle-star" | "nebula" | "shooting-star" | "floating-dot";
+  type: "star" | "twinkle-star" | "floating-dot";
   left: string;
-  top: string; // Stored as percentage string
-  initialTop: number; // Stored as number (0-100) for calculations
-  initialLeft: number; // Stored as number (0-100) for calculations
+  top: string;
+  initialTop: number;
+  initialLeft: number;
   size: number;
   opacity: number;
   delay: number;
   duration: number;
   parallaxSpeed: number;
-  color?: string;
 }
 
 function generateSpaceObjects(count: number): SpaceObject[] {
   const objects: SpaceObject[] = [];
 
-  // Regular stars
   for (let i = 0; i < count; i++) {
     const rand = Math.random();
     let type: SpaceObject["type"];
 
-    if (rand > 0.7) {
+    if (rand > 0.82) {
       type = "twinkle-star";
-    } else if (rand > 0.6) {
+    } else if (rand > 0.7) {
       type = "floating-dot";
-    } else if (rand > 0.97) {
-      type = "nebula";
     } else {
       type = "star";
     }
@@ -45,21 +41,15 @@ function generateSpaceObjects(count: number): SpaceObject[] {
       top: `${top}%`,
       initialTop: top,
       initialLeft: left,
-      size:
-        type === "nebula" ? Math.random() * 100 + 50 : Math.random() * 4 + 1,
-      opacity: type === "nebula" ? 0.1 : Math.random() * 0.7 + 0.3,
+      size: Math.random() * 2.5 + 0.5,
+      opacity: Math.random() * 0.4 + 0.1,
       delay: Math.random() * 8,
-      duration: Math.random() * 4 + 2,
-      parallaxSpeed: Math.random() * 0.5 + 0.1,
-      color:
-        type === "nebula"
-          ? ["#f97316", "#8b5cf6", "#ec4899"][Math.floor(Math.random() * 3)]
-          : undefined,
+      duration: Math.random() * 5 + 3,
+      parallaxSpeed: Math.random() * 0.3 + 0.05,
     });
   }
 
-  // Add extra floating dots
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 15; i++) {
     const top = Math.random() * 100;
     const left = Math.random() * 100;
 
@@ -70,31 +60,11 @@ function generateSpaceObjects(count: number): SpaceObject[] {
       top: `${top}%`,
       initialTop: top,
       initialLeft: left,
-      size: Math.random() * 3 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
+      size: Math.random() * 2 + 0.5,
+      opacity: Math.random() * 0.3 + 0.1,
       delay: Math.random() * 10,
       duration: Math.random() * 6 + 4,
-      parallaxSpeed: Math.random() * 0.3 + 0.05,
-    });
-  }
-
-  // Add a few shooting stars
-  for (let i = 0; i < 5; i++) {
-    const top = Math.random() * 50;
-    const left = Math.random() * 80;
-
-    objects.push({
-      id: count + 50 + i,
-      type: "shooting-star",
-      left: `${left}%`,
-      top: `${top}%`,
-      initialTop: top,
-      initialLeft: left,
-      size: 2,
-      opacity: 0.8,
-      delay: Math.random() * 15 + i * 4,
-      duration: 1.5,
-      parallaxSpeed: 0.8,
+      parallaxSpeed: Math.random() * 0.2 + 0.03,
     });
   }
 
@@ -106,9 +76,8 @@ export function SpaceBackground({
 }: {
   intensity?: "light" | "normal" | "dense";
 }) {
-  const count = intensity === "light" ? 60 : intensity === "dense" ? 200 : 120;
+  const count = intensity === "light" ? 30 : intensity === "dense" ? 80 : 50;
 
-  // Initialize empty to match server render
   const [objects, setObjects] = useState<SpaceObject[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
@@ -117,7 +86,6 @@ export function SpaceBackground({
   const objectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // Generate objects only on client after mount to avoid hydration mismatch
     setObjects(generateSpaceObjects(count));
   }, [count]);
 
@@ -138,66 +106,32 @@ export function SpaceBackground({
       const mouseX = mouseRef.current.x;
       const mouseY = mouseRef.current.y;
 
-      // Get container bounds to create relative coordinates
       const containerRect = containerRef.current?.getBoundingClientRect();
-      const containerTop = containerRect?.top || 0;
 
       objects.forEach((obj, index) => {
         const el = objectRefs.current[index];
         if (!el) return;
 
-        // Calculate base parallax offset
-        const parallaxOffset = scrollY * obj.parallaxSpeed * 0.1;
+        const parallaxOffset = scrollY * obj.parallaxSpeed * 0.08;
         let transform = `translateY(${parallaxOffset}px)`;
 
-        // Magnetic effect for floating dots
-        if (obj.type === "floating-dot") {
-          // Calculate element position relative to viewport
-          // Approximate position based on initial % + parallax
-          // This is an estimation since we don't query getBoundingClientRect per element per frame (expensive)
+        if (obj.type === "floating-dot" && containerRect) {
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
 
-          // Current absolute position estimation
-          // We can use the mouse position relative to window vs element position relative to window
-          // Element Y = initialTop% * viewportHeight + parallaxOffset + containerTop
-          // Element X = initialLeft% * viewportWidth
+          const elX = (obj.initialLeft / 100) * viewportWidth;
+          const elY = (obj.initialTop / 100) * viewportHeight + parallaxOffset;
 
-          if (containerRect) {
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
+          const distX = mouseX - elX;
+          const distY = mouseY - elY;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+          const maxDistance = 200;
 
-            const elX = (obj.initialLeft / 100) * viewportWidth;
-            const elY =
-              (obj.initialTop / 100) * viewportHeight + parallaxOffset; // relative to container start (0 at top of hero usually)
-
-            // Adjust to viewport coordinates considering container might be scrolled
-            // Actually, if container is fixed/absolute covering screen, simple math works.
-            // If it scrolls with page, we need to account for that.
-            // SpaceBackground is absolute inset-0, so it scrolls with parent.
-            // If parent is body/relative, it scrolls.
-
-            // Since the container is fixed (per usage in page.tsx), the element's position relative to viewport
-            // is simply its initial position plus the transform offset.
-            // We do NOT subtract scrollY because the container itself doesn't move up with scroll.
-
-            const screenX = elX;
-            const screenY = elY; // Relative to viewport top
-
-            const dx = mouseX - screenX;
-            const dy = mouseY - screenY;
-
-            const distX = mouseX - elX;
-            const distY = mouseY - elY;
-
-            const distance = Math.sqrt(distX * distX + distY * distY);
-            const maxDistance = 250;
-
-            if (distance < maxDistance) {
-              const force = (maxDistance - distance) / maxDistance;
-              const moveX = distX * force * 0.4; // 0.4 = strength
-              const moveY = distY * force * 0.4;
-
-              transform = `translate(${moveX}px, ${parallaxOffset + moveY}px)`;
-            }
+          if (distance < maxDistance) {
+            const force = (maxDistance - distance) / maxDistance;
+            const moveX = distX * force * 0.25;
+            const moveY = distY * force * 0.25;
+            transform = `translate(${moveX}px, ${parallaxOffset + moveY}px)`;
           }
         }
 
@@ -222,106 +156,57 @@ export function SpaceBackground({
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
       {objects.map((obj, index) => {
+        const starColor = obj.type === "twinkle-star"
+          ? "rgba(212, 165, 174, 0.7)"
+          : "rgba(232, 221, 224, 0.6)";
+
         return (
           <div
             key={obj.id}
             ref={(el) => {
               objectRefs.current[index] = el;
             }}
-            className={`absolute rounded-full ${obj.type === "twinkle-star" ? "animate-twinkle" : ""} ${obj.type === "floating-dot" ? "animate-float-dot" : ""} ${obj.type === "shooting-star" ? "animate-shooting-star" : ""} ${obj.type === "nebula" ? "blur-3xl animate-pulse-slow" : "bg-white"}`}
+            className={`absolute rounded-full ${obj.type === "twinkle-star" ? "animate-twinkle" : ""} ${obj.type === "floating-dot" ? "animate-float-dot" : ""}`}
             style={{
               left: obj.left,
               top: obj.top,
-              width: obj.type === "shooting-star" ? 100 : obj.size,
-              height: obj.type === "shooting-star" ? 2 : obj.size,
+              width: obj.size,
+              height: obj.size,
               opacity: obj.opacity,
-              background:
-                obj.type === "nebula"
-                  ? `radial-gradient(circle, ${obj.color} 0%, transparent 70%)`
-                  : obj.type === "shooting-star"
-                    ? "linear-gradient(90deg, transparent, white, transparent)"
-                    : undefined,
+              backgroundColor: starColor,
               boxShadow:
                 obj.type === "twinkle-star"
-                  ? `0 0 ${obj.size * 3}px ${obj.size}px rgba(255, 255, 255, 0.4)`
+                  ? `0 0 ${obj.size * 2}px ${obj.size * 0.5}px rgba(212, 165, 174, 0.2)`
                   : undefined,
               animationDelay: `${obj.delay}s`,
               animationDuration:
-                obj.type === "shooting-star" || obj.type === "twinkle-star"
+                obj.type === "twinkle-star"
                   ? `${obj.duration}s`
                   : undefined,
-              transform:
-                obj.type === "shooting-star" ? "rotate(45deg)" : undefined,
             }}
           />
         );
       })}
 
-      {/* Decorative 4-pointed stars - kept static/CSS animated for simplicity, or could be added to refs for magnetism too */}
       <FourPointStar
-        className="absolute text-orange-500"
-        size={40}
-        style={{
-          left: "10%",
-          top: "20%",
-          transform: `translateY(${0}px)`, // Will require refactoring to animate via JS if needed
-        }}
-      />
-      <FourPointStar
-        className="absolute text-amber-500"
+        className="absolute text-rose-300/40"
         size={20}
-        style={{
-          left: "15%",
-          top: "25%",
-        }}
+        style={{ left: "10%", top: "20%" }}
       />
       <FourPointStar
-        className="absolute text-orange-400"
-        size={35}
-        style={{
-          right: "12%",
-          top: "30%",
-        }}
+        className="absolute text-amber-300/30"
+        size={14}
+        style={{ right: "12%", top: "30%" }}
       />
       <FourPointStar
-        className="absolute text-purple-500"
-        size={25}
-        style={{
-          right: "8%",
-          top: "35%",
-        }}
+        className="absolute text-rose-200/25"
+        size={18}
+        style={{ left: "5%", bottom: "40%" }}
       />
       <FourPointStar
-        className="absolute text-rose-400"
-        size={30}
-        style={{
-          left: "5%",
-          bottom: "40%",
-        }}
-      />
-      <FourPointStar
-        className="absolute text-orange-300"
-        size={45}
-        style={{
-          right: "5%",
-          bottom: "35%",
-        }}
-      />
-      <FourPointStar
-        className="absolute text-amber-400"
-        size={28}
-        style={{
-          left: "25%",
-          top: "60%",
-        }}
-      />
-      <FourPointStar
-        className="absolute text-orange-500"
-        size={32}
-        style={{
-          right: "20%",
-          top: "70%",
-        }}
+        className="absolute text-amber-200/20"
+        size={16}
+        style={{ right: "20%", top: "70%" }}
       />
     </div>
   );

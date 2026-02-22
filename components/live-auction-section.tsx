@@ -38,7 +38,7 @@ const liveAuctionCards: AuctionCardUI[] = [
 
 function VerifiedBadge() {
   return (
-    <div className="w-6 h-6 md:w-7 md:h-7 bg-[#4a3b69]/30 rounded-full flex items-center justify-center border border-[#8a7ba0]/20">
+    <div className="w-6 h-6 md:w-7 md:h-7 bg-[#4a3540]/30 rounded-full flex items-center justify-center border border-[#9a8588]/20">
       <svg
         width="14"
         height="14"
@@ -48,7 +48,7 @@ function VerifiedBadge() {
       >
         <path
           d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-          stroke="#8a7ba0"
+          stroke="#9a8588"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -73,29 +73,29 @@ function AuctionCardComponent({
 
   return (
     <div
-      className={`relative rounded-[2.5rem] overflow-hidden bg-[#181524]/60 backdrop-blur-2xl border border-[#4a3b69]/40 cursor-pointer transition-all duration-500 group ${
+      className={`relative rounded-[2.5rem] overflow-hidden bg-[#1a1517]/40 backdrop-blur-xl border border-[#4a3540]/20 cursor-pointer transition-all duration-500 group ${
         isFeatured
-          ? "w-full sm:w-[300px] md:w-[340px] shadow-[0_20px_50px_rgba(107,78,143,0.3)]"
-          : "w-[240px] md:w-[280px] shadow-[0_10px_30px_rgba(0,0,0,0.3)] opacity-80"
-      } hover:translate-y-[-8px] hover:shadow-[0_30px_60px_rgba(107,78,143,0.4)] hover:opacity-100`}
+          ? "w-full sm:w-[300px] md:w-[340px] shadow-[0_15px_35px_rgba(122,74,88,0.3)]"
+          : "w-[240px] md:w-[280px] shadow-[0_8px_20px_rgba(0,0,0,0.3)] opacity-80"
+      } hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(122,74,88,0.4)] hover:opacity-100`}
       onClick={handleBuyNow}
     >
       {/* Glow highlight */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#4a3b69]/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#4a3540]/10 to-transparent pointer-events-none" />
 
       {/* Card Header */}
       <div className="p-4 md:p-6 pb-2 relative z-10">
         <div className="flex items-center gap-2 mb-1">
           <span
-            className={`font-black font-cinzel tracking-tighter ${isFeatured ? "text-[#e0d4ee] text-xl md:text-2xl" : "text-[#e0d4ee] text-lg"}`}
+            className={`font-black font-cormorant tracking-tighter ${isFeatured ? "text-[#e8dde0] text-xl md:text-2xl" : "text-[#e8dde0] text-lg"}`}
           >
             {card.name.split("#")[0]}{" "}
-            <span className="text-[#9a7fbf]">#{card.name.split("#")[1]}</span>
+            <span className="text-[#b8707e]">#{card.name.split("#")[1]}</span>
           </span>
           <VerifiedBadge />
         </div>
         <p
-          className={`text-[#8a7ba0] ${isFeatured ? "text-sm" : "text-xs"} uppercase font-black tracking-widest`}
+          className={`text-[#9a8588] ${isFeatured ? "text-sm" : "text-xs"} uppercase font-black tracking-widest`}
         >
           {card.artistName} • {card.role}
         </p>
@@ -103,7 +103,7 @@ function AuctionCardComponent({
 
       {/* Card Image */}
       <div
-        className={`mx-4 md:mx-6 rounded-[2rem] overflow-hidden border border-[#4a3b69]/20 relative group ${isFeatured ? "h-[220px] sm:h-[260px] md:h-[300px]" : "h-[200px] md:h-[240px]"}`}
+        className={`mx-4 md:mx-6 rounded-[2rem] overflow-hidden border border-[#4a3540]/20 relative group ${isFeatured ? "h-[220px] sm:h-[260px] md:h-[300px]" : "h-[200px] md:h-[240px]"}`}
       >
         <Image
           src={card.image || "/placeholder.svg"}
@@ -113,25 +113,25 @@ function AuctionCardComponent({
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#181524]/40 to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1517]/40 to-transparent opacity-60" />
       </div>
 
       <div className="p-4 md:p-6 pt-3 md:pt-4 relative z-10">
         <div className="flex justify-between items-center">
           <div>
-            <p className="text-[#8a7ba0] text-[9px] uppercase font-black tracking-[0.2em] mb-1">
+            <p className="text-[#9a8588] text-[9px] uppercase font-black tracking-[0.2em] mb-1">
               Fixed Price
             </p>
-            <p className="text-[#e0d4ee] font-black text-xl md:text-2xl font-cinzel leading-none">
+            <p className="text-[#e8dde0] font-black text-xl md:text-2xl font-cormorant leading-none">
               {card.price}
             </p>
-            <p className="text-[#8a7ba0]/60 text-[10px] mt-1 font-bold">
+            <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold">
               {card.priceUSD}
             </p>
           </div>
           {isFeatured && (
-            <div className="bg-[#2a2438] border border-[#4a3b69]/40 p-2 rounded-xl">
-              <div className="w-2 h-2 bg-[#9a7fbf] rounded-full animate-pulse" />
+            <div className="bg-[#2a2123] border border-[#4a3540]/40 p-2 rounded-xl">
+              <div className="w-2 h-2 bg-[#b8707e] rounded-full animate-pulse" />
             </div>
           )}
         </div>
@@ -142,8 +142,8 @@ function AuctionCardComponent({
 
 function CreatorBadge() {
   return (
-    <div className="flex items-center gap-3 bg-[#181524]/80 backdrop-blur-md rounded-full pl-1 pr-5 py-1.5 border border-[#4a3b69]/40 cursor-pointer hover:border-[#9a7fbf] transition-all group">
-      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-[#4a3b69]/60 p-0.5 bg-gradient-to-br from-[#4a3b69] to-[#181524]">
+    <div className="flex items-center gap-3 bg-[#1a1517]/80 backdrop-blur-md rounded-full pl-1 pr-5 py-1.5 border border-[#4a3540]/40 cursor-pointer hover:border-[#b8707e] transition-all group">
+      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-[#4a3540]/60 p-0.5 bg-gradient-to-br from-[#4a3540] to-[#1a1517]">
         <div className="w-full h-full rounded-full overflow-hidden">
           <Image
             src={nftCards[0].image}
@@ -156,10 +156,10 @@ function CreatorBadge() {
         </div>
       </div>
       <div className="flex flex-col">
-        <span className="text-[#e0d4ee] font-black text-sm md:text-base font-cinzel tracking-tight group-hover:text-[#9a7fbf] transition-colors">
+        <span className="text-[#e8dde0] font-black text-sm md:text-base font-cormorant tracking-tight group-hover:text-[#b8707e] transition-colors">
           @m3th1ld3
         </span>
-        <span className="text-[#8a7ba0] text-[10px] uppercase font-black tracking-[0.1em]">
+        <span className="text-[#9a8588] text-[10px] uppercase font-black tracking-[0.1em]">
           Verified Artist
         </span>
       </div>
@@ -182,8 +182,8 @@ function CheckboxAgreement({
       <div
         className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-all border ${
           checked
-            ? "bg-gradient-to-br from-[#4a3b69] to-[#9a7fbf] border-transparent shadow-[0_0_15px_rgba(154,127,191,0.4)]"
-            : "bg-[#181524]/60 border-[#4a3b69]/60 hover:border-[#9a7fbf]/60"
+            ? "bg-gradient-to-br from-[#4a3540] to-[#b8707e] border-transparent shadow-[0_0_15px_rgba(184,112,126,0.4)]"
+            : "bg-[#1a1517]/60 border-[#4a3540]/60 hover:border-[#b8707e]/60"
         }`}
       >
         {checked && (
@@ -196,7 +196,7 @@ function CheckboxAgreement({
           >
             <path
               d="M5 12L10 17L19 8"
-              stroke="#e0d4ee"
+              stroke="#e8dde0"
               strokeWidth="4"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -204,11 +204,11 @@ function CheckboxAgreement({
           </svg>
         )}
       </div>
-      <span className="text-[#8a7ba0] text-sm md:text-base font-medium">
+      <span className="text-[#9a8588] text-sm md:text-base font-medium">
         I Agree to All rules.{" "}
         <Link
           href="/terms"
-          className="text-[#9a7fbf] hover:text-[#e0d4ee] font-black transition-colors underline decoration-[#9a7fbf]/30 underline-offset-4"
+          className="text-[#b8707e] hover:text-[#e8dde0] font-black transition-colors underline decoration-[#b8707e]/30 underline-offset-4"
         >
           Term & Service
         </Link>
@@ -237,10 +237,10 @@ export function LiveAuctionSection() {
   return (
     <section
       id="auctions"
-      className="relative py-24 md:py-32 overflow-hidden bg-transparent"
+      className="relative py-32 md:py-40 overflow-hidden bg-transparent"
     >
       {/* Ambient background effects */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[600px] bg-[#4a3b69]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[600px] bg-[#4a3540]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-32">
@@ -292,36 +292,36 @@ export function LiveAuctionSection() {
           {/* Right Side - Auction Details */}
           <div className="flex flex-col gap-8 md:gap-10 max-w-xl text-center lg:text-left">
             {/* Live Now Badge */}
-            <div className="flex items-center gap-3 bg-[#181524]/80 backdrop-blur-md rounded-full px-5 py-2.5 w-fit mx-auto lg:mx-0 border border-[#4a3b69]/40">
+            <div className="flex items-center gap-3 bg-[#1a1517]/80 backdrop-blur-md rounded-full px-5 py-2.5 w-fit mx-auto lg:mx-0 border border-[#4a3540]/40">
               <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9a7fbf] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#9a7fbf]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#b8707e] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#b8707e]"></span>
               </div>
-              <span className="text-[#e0d4ee] font-black text-sm md:text-base uppercase tracking-widest leading-none">
+              <span className="text-[#e8dde0] font-black text-sm md:text-base uppercase tracking-widest leading-none">
                 Live Now
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="text-[#e0d4ee] text-5xl sm:text-6xl lg:text-8xl font-black uppercase leading-[0.85] tracking-tighter font-cinzel">
+            <h2 className="text-[#e8dde0] text-5xl sm:text-6xl lg:text-8xl font-black uppercase leading-[0.85] tracking-tighter font-cormorant">
               ULTRA
               <br />
               MODERN
               <br />
-              <span className="text-[#9a7fbf]">MANSION</span>
+              <span className="text-[#b8707e]">MANSION</span>
             </h2>
 
             {/* Creator and Agreement Section */}
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
               <div className="flex flex-col gap-3 items-center lg:items-start">
-                <p className="text-[#8a7ba0] text-[10px] uppercase font-black tracking-[0.2em]">
+                <p className="text-[#9a8588] text-[10px] uppercase font-black tracking-[0.2em]">
                   Artist
                 </p>
                 <CreatorBadge />
               </div>
 
               <div className="flex flex-col gap-2 items-center lg:items-start">
-                <p className="text-[#8a7ba0] text-[10px] uppercase font-black tracking-[0.2em] mb-1">
+                <p className="text-[#9a8588] text-[10px] uppercase font-black tracking-[0.2em] mb-1">
                   Authorization
                 </p>
                 <CheckboxAgreement
@@ -334,7 +334,7 @@ export function LiveAuctionSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <button
                 onClick={handleShopNow}
-                className="bg-gradient-to-r from-[#4a3b69] to-[#2a2438] hover:from-[#5b4a7d] hover:to-[#3b2e55] text-[#e0d4ee] font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all hover:-translate-y-1 text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border border-[#6b4e8f]/50 shadow-[0_10px_25px_rgba(107,78,143,0.3)]"
+                className="bg-gradient-to-r from-[#4a3540] to-[#2a2123] hover:from-[#6b4555] hover:to-[#3b2b30] text-[#e8dde0] font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all hover:-translate-y-1 text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border border-[#7a4a58]/50 shadow-[0_10px_25px_rgba(122,74,88,0.3)]"
               >
                 Explore Collection
               </button>
@@ -343,7 +343,7 @@ export function LiveAuctionSection() {
                 disabled={!isAgreed}
                 className={`font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border-2 ${
                   isAgreed
-                    ? "border-[#4a3b69] text-[#e0d4ee] hover:bg-[#4a3b69]/20 hover:-translate-y-1 shadow-[0_10px_20px_rgba(107,78,143,0.1)]"
+                    ? "border-[#4a3540] text-[#e8dde0] hover:bg-[#4a3540]/20 hover:-translate-y-1 shadow-[0_10px_20px_rgba(122,74,88,0.1)]"
                     : "border-gray-800 text-gray-700 cursor-not-allowed opacity-50"
                 }`}
               >

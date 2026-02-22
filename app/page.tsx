@@ -11,10 +11,10 @@ import { SpaceBackground } from "@/components/space-background";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0e17] relative overflow-hidden">
+    <main className="min-h-screen bg-[#100d0e] relative overflow-hidden">
       {/* Global space background with parallax */}
       <div className="fixed inset-0 z-0">
-        <SpaceBackground intensity="dense" />
+        <SpaceBackground intensity="normal" />
       </div>
 
       {/* Content */}

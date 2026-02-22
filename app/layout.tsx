@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { WalletProvider } from "@/context/wallet-context";
 import { TermsProvider } from "@/context/terms-context";
 import "./globals.css";
-const _geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const _geistMono = Geist_Mono({
+const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const _cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
 });
-const _cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
 
 export const metadata: Metadata = {
   title: "Mansions Sales",
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${_geist.variable} ${_geistMono.variable} ${_cinzel.variable} font-sans antialiased`}
+        className={`${_inter.variable} ${_cormorant.variable} font-sans antialiased`}
       >
         <WalletProvider>
           <TermsProvider>
