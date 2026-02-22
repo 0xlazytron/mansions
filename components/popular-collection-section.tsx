@@ -142,7 +142,7 @@ export function PopularCollectionSection() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="flex flex-col items-center sm:items-start">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#e8dde0] font-cormorant tracking-tight uppercase leading-none mb-3">
-              POPULAR <span className="text-[#b8707e]">COLLECTION</span>
+              POPULAR <span className="text-[#b8707e]">MANSIONS</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#4a3540] to-transparent mr-4" />
           </div>

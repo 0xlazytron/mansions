@@ -9,7 +9,7 @@ const steps = [
   },
   {
     icon: LayoutGrid,
-    title: "CHOOSE Mansions",
+    title: "CHOOSE MANSIONS",
     description: "Browse and select the unique Mansions you want to mint.",
   },
   {
@@ -20,7 +20,7 @@ const steps = [
   },
   {
     icon: CheckCircle,
-    title: "View in Collection",
+    title: "VIEW IN COLLECTION",
     description: "View your newly minted Mansions in your collection.",
   },
 ];

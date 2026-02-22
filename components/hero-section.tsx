@@ -77,43 +77,6 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-12 sm:gap-16 md:gap-24 mb-12 md:mb-16">
-            <div className="text-center">
-              <p
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
-                style={{ color: "#d4a5ae" }}
-              >
-                69K+
-              </p>
-              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
-                Artwork
-              </p>
-            </div>
-            <div className="text-center">
-              <p
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
-                style={{ color: "#d4a5ae" }}
-              >
-                21K+
-              </p>
-              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
-                Collectors
-              </p>
-            </div>
-            <div className="text-center">
-              <p
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold transition-colors font-cormorant"
-                style={{ color: "#d4a5ae" }}
-              >
-                8K+
-              </p>
-              <p className="text-xs md:text-sm tracking-widest uppercase" style={{ color: "#9a8588" }}>
-                Artist
-              </p>
-            </div>
-          </div>
-
           {/* CTA Button */}
           <button
             onClick={handleDiscoverNFTs}
