@@ -10,7 +10,7 @@ const nftLinks = [
 const socialLinks = [
   { label: "Substack", href: "https://m3th1ld3.substack.com/" },
   { label: "Instagram", href: "https://instagram.com/m3th1ld3" },
-  { label: "X / Twitter", href: "https://twitter.com/m3th1ld3" },
+  { label: "X / Twitter", href: "https://x.com/m3th1ld3" },
 ];
 
 export function JoinTeamSection() {
