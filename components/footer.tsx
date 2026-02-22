@@ -40,12 +40,6 @@ export function Footer() {
               </span>
             </Link>
 
-            {/* Description */}
-            <p className="text-[#9a8588] text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-sm">
-              The premier destination for luxury digital real estate. Collect,
-              own, and trade exclusive ultra-modern mansion NFTs in the most
-              elite metaverse marketplace.
-            </p>
 
           </div>
 
