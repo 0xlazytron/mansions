@@ -7,6 +7,12 @@ const nftLinks = [
   { label: "Magic Eden", href: "https://magiceden.us/collections/base/0xd0f68bd2a6e0e007ffe05b0e2f717075abe38b9a" },
 ];
 
+const socialLinks = [
+  { label: "Substack", href: "https://m3th1ld3.substack.com/" },
+  { label: "Instagram", href: "https://instagram.com/m3th1ld3" },
+  { label: "X / Twitter", href: "https://twitter.com/m3th1ld3" },
+];
+
 export function JoinTeamSection() {
   return (
     <section
@@ -34,6 +40,23 @@ export function JoinTeamSection() {
         </a>
 
         <div className="mt-10">
+          <p className="text-[#9a8588] text-xs uppercase tracking-widest font-semibold mb-4">
+            Follow
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 bg-[#1a1517]/60 backdrop-blur-md text-[#c4b0b4] hover:text-[#e8dde0] font-medium rounded-xl border border-[#4a3540]/40 hover:border-[#b8707e] transition-all text-sm"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
           <p className="text-[#9a8588] text-xs uppercase tracking-widest font-semibold mb-4">
             NFT Collections
           </p>

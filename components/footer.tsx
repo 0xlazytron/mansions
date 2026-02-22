@@ -1,24 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Twitter, Facebook, Instagram, Github } from "lucide-react";
-
 const companyLinks = [
   { label: "Home", href: "/" },
   { label: "How to Mint", href: "#how-it-works" },
   { label: "Collections", href: "#collections" },
-  // { label: "Contact", href: "#contact" },
 ];
 
 const helpLinks = [
   { label: "Customer Care", href: "/help" },
   { label: "Terms & Conditions", href: "/terms" },
-];
-
-const socialLinks = [
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
 ];
 
 export function Footer() {
@@ -57,21 +47,6 @@ export function Footer() {
               elite metaverse marketplace.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-[#1a1517]/80 text-[#9a8588] border border-[#4a3540]/40 hover:bg-[#4a3540]/20 hover:text-[#e8dde0] hover:border-[#b8707e] hover:-translate-y-1 shadow-sm"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* Company Links */}
