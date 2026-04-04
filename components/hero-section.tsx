@@ -46,8 +46,10 @@ export function HeroSection() {
         {/* Center Content */}
         <div className="text-center z-20 pt-8 md:pt-12 px-4 w-full max-w-[100vw]">
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant"
-            style={{ color: "#d4a5ae" }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(135deg, #d4a5ae 0%, #c9a0b0 30%, #a8a0c4 70%, #8e9bbd 100%)",
+            }}
           >
             MANSIONS
           </h1>
@@ -63,8 +65,10 @@ export function HeroSection() {
                 of the
               </span>
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant"
-                style={{ color: "#ddd0d4" }}
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: "linear-gradient(135deg, #ddd0d4 0%, #c4b8cc 40%, #a8a0c4 80%, #8e9bbd 100%)",
+                }}
               >
                 MOON
               </span>
