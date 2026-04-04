@@ -49,7 +49,7 @@ export function HeroSection() {
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant"
             style={{ color: "#d4a5ae" }}
           >
-            Mansions
+            MANSIONS
           </h1>
           <div className="flex flex-col items-center justify-center gap-6 mb-10 md:mb-14">
             <div className="flex items-center justify-center gap-0">
@@ -66,7 +66,7 @@ export function HeroSection() {
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant"
                 style={{ color: "#ddd0d4" }}
               >
-                Moon
+                MOON
               </span>
             </div>
             <p
