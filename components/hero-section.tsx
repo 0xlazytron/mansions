@@ -56,7 +56,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center justify-center gap-6 mb-10 md:mb-14">
             <div className="flex items-center justify-center gap-0">
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black px-4 md:px-6 py-2 -rotate-3 inline-block font-cormorant"
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light px-4 md:px-6 py-2 -rotate-3 inline-block font-cormorant italic"
                 style={{
                   backgroundColor: "rgba(122, 74, 88, 0.7)",
                   color: "#e8dde0",
