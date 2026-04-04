@@ -139,7 +139,7 @@ export function Navbar() {
               e.currentTarget.style.color = "#c4a5ab";
             }}
           >
-            Join Team
+            Contact
           </button>
         </div>
 
@@ -283,7 +283,7 @@ export function Navbar() {
                 e.currentTarget.style.color = "#c4a5ab";
               }}
             >
-              Join Team
+              Contact
             </button>
             <div className="flex items-center gap-6 py-2 px-1">
               {socialLinks.map((social) => (
