@@ -120,7 +120,7 @@ export function HeroSection() {
               style={{ fill: "#9a8588" }}
             >
               <textPath href="#circlePath">
-                • Mint Now • Collect Assets •
+                • Mansions of the Moon • Explore •
               </textPath>
             </text>
           </svg>

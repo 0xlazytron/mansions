@@ -212,12 +212,12 @@ function CheckboxAgreement({
         )}
       </div>
       <span className="text-[#9a8588] text-sm md:text-base font-medium">
-        I Agree to All rules.{" "}
+        I agree to all rules.{" "}
         <Link
           href="/terms"
           className="text-[#b8707e] hover:text-[#e8dde0] font-black transition-colors underline decoration-[#b8707e]/30 underline-offset-4"
         >
-          Term & Service
+          Terms of Service
         </Link>
       </span>
     </div>
@@ -279,7 +279,7 @@ export function LiveAuctionSection() {
   const sideCards = liveAuctionCards.slice(0, -1);
 
   const handleShopNow = () => {
-    window.open("https://opensea.io", "_blank");
+    window.open("https://opensea.io/M3th1ld3", "_blank");
   };
 
   const handleBuyNowAction = (nft?: NFTCard) => {
@@ -354,7 +354,7 @@ export function LiveAuctionSection() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-[#b8707e]"></span>
               </div>
               <span className="text-[#e8dde0] font-black text-sm md:text-base uppercase tracking-widest leading-none">
-                Live Now
+                Coming Soon
               </span>
             </div>
 

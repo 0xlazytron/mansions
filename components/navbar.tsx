@@ -3,15 +3,30 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Twitter, Facebook, Instagram, Github } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 import { ConnectWalletModal } from "./connect-wallet-modal";
 import { useWallet } from "@/hooks/use-wallet";
 
+function SubstackIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24l9.54-5.39L20.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
-  { icon: Twitter, href: "https://x.com/m3th1ld3", label: "Twitter" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: SubstackIcon, href: "https://m3th1ld3.substack.com/", label: "Substack" },
   { icon: Instagram, href: "http://instagram.com/m3th1ld3", label: "Instagram" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
+  { icon: XIcon, href: "https://x.com/m3th1ld3", label: "X" },
 ];
 
 export function Navbar() {

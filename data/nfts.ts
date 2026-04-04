@@ -21,7 +21,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$486,312.00",
     "bgColor": "bg-blue-500",
     "name": "Mansions #02",
-    "description": "Known as 'The Little Belly,' this Mansions corresponds to the constellation's central belly region and embodies Venus' nurturing, fertile aspect. In traditional Islamic astronomy, Al-Butain represents the cosmic womb where new life gestates and develops. Excellent for planting, building foundations, and establishing roots. The artwork visualizes the Belly of Aries with Venus' emerald-green palette and flowing organic forms.",
+    "description": "Known as 'The Little Belly,' this mansion corresponds to the constellation's central belly region and embodies Venus' nurturing, fertile aspect. In traditional Islamic astronomy, Al-Butain represents the cosmic womb where new life gestates and develops. Excellent for planting, building foundations, and establishing roots. The artwork visualizes the Belly of Aries with Venus' emerald-green palette and flowing organic forms.",
     "headerColor": "bg-blue-500"
   },
   {
@@ -33,7 +33,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$121,189.00",
     "bgColor": "bg-violet-500",
     "name": "Mansions #03",
-    "description": "The most celebrated Mansions in Islamic astrology, Al-Thuraiya corresponds directly to the Pleiades, the 'Seven Sisters' star cluster. Ruled by the Moon at her most luminous, this Mansions embodies celestial favor and divine blessing. The generative artwork renders all seven sisters - Alcyone, Atlas, Electra, Maia, Merope, Taygeta, and Pleione - in lunar silver-white radiance with ethereal geometry representing the flow of baraka (divine blessing) from heaven to earth.",
+    "description": "The most celebrated mansion in Islamic astrology, Al-Thuraiya corresponds directly to the Pleiades, the 'Seven Sisters' star cluster. Ruled by the Moon at her most luminous, this mansion embodies celestial favor and divine blessing. The generative artwork renders all seven sisters - Alcyone, Atlas, Electra, Maia, Merope, Taygeta, and Pleione - in lunar silver-white radiance with ethereal geometry representing the flow of baraka (divine blessing) from heaven to earth.",
     "headerColor": "bg-violet-500"
   },
   {
@@ -45,7 +45,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$490,230.00",
     "bgColor": "bg-violet-500",
     "name": "Mansions #04",
-    "description": "Named for Aldebaran, the 'Royal Watcher' and brightest star in Taurus, Al-Dabaran embodies Mars in his role as cosmic justice-bringer. The name means 'The Follower' because Aldebaran eternally pursues the Pleiades across the night sky. One of the four 'Royal Stars' or 'Watchers of Heaven,' this Mansions channels Mars' separative power for divine justice. The artwork captures Aldebaran's ruddy red giant light with Mars' deep crimson palette and sharp, decisive geometry.",
+    "description": "Named for Aldebaran, the 'Royal Watcher' and brightest star in Taurus, Al-Dabaran embodies Mars in his role as cosmic justice-bringer. The name means 'The Follower' because Aldebaran eternally pursues the Pleiades across the night sky. One of the four 'Royal Stars' or 'Watchers of Heaven,' this mansion channels Mars' separative power for divine justice. The artwork captures Aldebaran's ruddy red giant light with Mars' deep crimson palette and sharp, decisive geometry.",
     "headerColor": "bg-violet-500"
   },
   {
@@ -57,7 +57,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$155,418.00",
     "bgColor": "bg-purple-600",
     "name": "Mansions #05",
-    "description": "Al-Haqa, 'The White Spot,' corresponds to the distinctive white nebula in Orion's head region. Ruled by Mercury as divine messenger, this Mansions serves as a cosmic communication center between earthly and heavenly realms. The 'white spot' was interpreted as a window through which divine light could penetrate into the material world. Brings favor from rulers and prophetic dreams. The generative artwork renders the Head of Orion with Lambda Orionis (Meissa) in Mercury's quicksilver palette with glowing portal-like geometry.",
+    "description": "Al-Haqa, 'The White Spot,' corresponds to the distinctive white nebula in Orion's head region. Ruled by Mercury as divine messenger, this mansion serves as a cosmic communication center between earthly and heavenly realms. The 'white spot' was interpreted as a window through which divine light could penetrate into the material world. Brings favor from rulers and prophetic dreams. The generative artwork renders the Head of Orion with Lambda Orionis (Meissa) in Mercury's quicksilver palette with glowing portal-like geometry.",
     "headerColor": "bg-purple-600"
   },
   {
@@ -81,7 +81,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$39,953.00",
     "bgColor": "bg-orange-400",
     "name": "Mansions #07",
-    "description": "Al-Dhira, 'The Arm,' corresponds to the bright twin stars Castor and Pollux in Gemini, representing mutual support and cooperation. Ruled by Venus in her most collaborative aspect, this Mansions embodies the divine principle of reciprocal aid. The twin stars were seen as the perfect model of beneficial partnership. The generative artwork renders the Heavenly Twins with both stars glowing in Venus' harmonious green palette, with interlocking sacred geometry representing unity through partnership.",
+    "description": "Al-Dhira, 'The Arm,' corresponds to the bright twin stars Castor and Pollux in Gemini, representing mutual support and cooperation. Ruled by Venus in her most collaborative aspect, this mansion embodies the divine principle of reciprocal aid. The twin stars were seen as the perfect model of beneficial partnership. The generative artwork renders the Heavenly Twins with both stars glowing in Venus' harmonious green palette, with interlocking sacred geometry representing unity through partnership.",
     "headerColor": "bg-orange-400"
   },
   {
@@ -93,7 +93,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$148,217.00",
     "bgColor": "bg-blue-500",
     "name": "Mansions #08",
-    "description": "Al-Nathrah, 'The Tip of the Nose,' corresponds to the Beehive Cluster (Praesepe) in Cancer. Ruled by Saturn in his most benevolent manifestation, this Mansions represents the paradoxical power of limitation to create unity. The Beehive Cluster was seen as a celestial gathering place where souls meet in harmony, like bees working together for the collective good. Causes love, friendship, and social harmony. The artwork renders the Beehive with Saturn's deep indigo palette and honeycomb-inspired sacred geometry.",
+    "description": "Al-Nathrah, 'The Tip of the Nose,' corresponds to the Beehive Cluster (Praesepe) in Cancer. Ruled by Saturn in his most benevolent manifestation, this mansion represents the paradoxical power of limitation to create unity. The Beehive Cluster was seen as a celestial gathering place where souls meet in harmony, like bees working together for the collective good. Causes love, friendship, and social harmony. The artwork renders the Beehive with Saturn's deep indigo palette and honeycomb-inspired sacred geometry.",
     "headerColor": "bg-blue-500"
   },
   {
@@ -105,7 +105,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$454,501.00",
     "bgColor": "bg-violet-500",
     "name": "Mansions #09",
-    "description": "Al-Tarf, 'The Glance,' corresponds to the bright star Regulus in Leo, the 'Heart of the Lion' and one of the four Royal Stars. Ruled by Mercury in his most contemplative aspect, this Mansions embodies the power of careful observation and patient assessment. The 'glance' represents the thoughtful pause before action - the wisdom to observe and proceed with full awareness. The generative artwork captures Regulus' brilliance in Mercury's quicksilver palette with contemplative geometric mandalas representing divine discernment.",
+    "description": "Al-Tarf, 'The Glance,' corresponds to the bright star Regulus in Leo, the 'Heart of the Lion' and one of the four Royal Stars. Ruled by Mercury in his most contemplative aspect, this mansion embodies the power of careful observation and patient assessment. The 'glance' represents the thoughtful pause before action - the wisdom to observe and proceed with full awareness. The generative artwork captures Regulus' brilliance in Mercury's quicksilver palette with contemplative geometric mandalas representing divine discernment.",
     "headerColor": "bg-violet-500"
   },
   {
@@ -129,7 +129,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$422,811.00",
     "bgColor": "bg-emerald-500",
     "name": "Mansions #11",
-    "description": "Al-Zubrah, 'The Mane,' corresponds to the distinctive backward question mark pattern forming the Lion's mane in Leo. Ruled by Jupiter in his most magnificent aspect, this Mansions channels the raw power and noble dignity of the celestial lion. The flowing mane represents the aura of natural authority that surrounds those who have conquered their own fears. Grants courage, victory, and success in battle. The generative artwork renders the magnificent mane flowing backward with Jupiter's royal purple-gold palette and leonine sacred geometry.",
+    "description": "Al-Zubrah, 'The Mane,' corresponds to the distinctive backward question mark pattern forming the Lion's mane in Leo. Ruled by Jupiter in his most magnificent aspect, this mansion channels the raw power and noble dignity of the celestial lion. The flowing mane represents the aura of natural authority that surrounds those who have conquered their own fears. Grants courage, victory, and success in battle. The generative artwork renders the magnificent mane flowing backward with Jupiter's royal purple-gold palette and leonine sacred geometry.",
     "headerColor": "bg-emerald-500"
   },
   {
@@ -153,7 +153,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$299,780.00",
     "bgColor": "bg-orange-400",
     "name": "Mansions #13",
-    "description": "Al-Awwa, 'The Barker,' corresponds to the bright stars in Virgo, particularly Spica, one of the brightest stars in the sky and another of the four Royal Watchers. Ruled by Mercury, this Mansions represents the divine feminine principle of discernment and harvest. The 'barker' is the watchful guardian who alerts the community to both opportunities and dangers. Excellent for harvests, marriages, and beneficial partnerships. The artwork renders Spica's brilliant blue-white light in Mercury's silver palette with wheat-sheaf sacred geometry.",
+    "description": "Al-Awwa, 'The Barker,' corresponds to the bright stars in Virgo, particularly Spica, one of the brightest stars in the sky and another of the four Royal Watchers. Ruled by Mercury, this mansion represents the divine feminine principle of discernment and harvest. The 'barker' is the watchful guardian who alerts the community to both opportunities and dangers. Excellent for harvests, marriages, and beneficial partnerships. The artwork renders Spica's brilliant blue-white light in Mercury's silver palette with wheat-sheaf sacred geometry.",
     "headerColor": "bg-orange-400"
   },
   {
@@ -285,7 +285,7 @@ export const nftCards: NFTCard[] = [
     "priceUSD": "$174,372.00",
     "bgColor": "bg-red-500",
     "name": "Mansions #24",
-    "description": "Sa'd al-Suud, 'The Luckiest of the Lucky,' ruled by Jupiter in his most expansive aspect, brings the greatest fortune of all Mansionss. Particularly powerful for any endeavor seeking divine blessing and maximum success. The most fortunate stars in Aquarius channel Jupiter's boundless generosity and cosmic abundance. The generative artwork explodes with Jupiter's most radiant gold-purple palette, with expansive, blessed geometric mandalas representing unlimited divine favor and supreme good fortune.",
+    "description": "Sa'd al-Suud, 'The Luckiest of the Lucky,' ruled by Jupiter in his most expansive aspect, brings the greatest fortune of all mansions. Particularly powerful for any endeavor seeking divine blessing and maximum success. The most fortunate stars in Aquarius channel Jupiter's boundless generosity and cosmic abundance. The generative artwork explodes with Jupiter's most radiant gold-purple palette, with expansive, blessed geometric mandalas representing unlimited divine favor and supreme good fortune.",
     "headerColor": "bg-red-500"
   },
   {
