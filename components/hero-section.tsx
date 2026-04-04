@@ -48,7 +48,7 @@ export function HeroSection() {
           <h1
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant bg-clip-text text-transparent"
             style={{
-              backgroundImage: "linear-gradient(135deg, #d4a5ae 0%, #c9a0b0 30%, #a8a0c4 70%, #8e9bbd 100%)",
+              backgroundImage: "linear-gradient(135deg, #d4a5ae 0%, #c9a0b0 25%, #9a94c0 60%, #7b8ab8 100%)",
             }}
           >
             MANSIONS
@@ -67,7 +67,7 @@ export function HeroSection() {
               <span
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: "linear-gradient(135deg, #ddd0d4 0%, #c4b8cc 40%, #a8a0c4 80%, #8e9bbd 100%)",
+                  backgroundImage: "linear-gradient(135deg, #ddd0d4 0%, #c4b8cc 35%, #9a94c0 70%, #7b8ab8 100%)",
                 }}
               >
                 MOON
