@@ -3,10 +3,8 @@
 import { Instagram } from "lucide-react";
 
 const nftLinks = [
-  { label: "Opensea", href: "https://opensea.io/M3th1ld3" },
   { label: "Manifold", href: "https://manifold.xyz/@m3th1ld3" },
   { label: "Rarible", href: "https://og.rarible.com/m3th1ld3/owned" },
-  { label: "Magic Eden", href: "https://magiceden.us/collections/base/0xd0f68bd2a6e0e007ffe05b0e2f717075abe38b9a" },
 ];
 
 function SubstackIcon({ className }: { className?: string }) {
