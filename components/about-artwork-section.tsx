@@ -10,7 +10,7 @@ export function AboutArtworkSection() {
 
         <div className="space-y-6 text-[#c4b0b4] font-sans text-base md:text-lg leading-relaxed">
           <p>
-            The lunar mansions (Manazil al-Qamar) represent one of humanity's
+            The lunar mansions (<a href="https://en.wikipedia.org/wiki/Lunar_station" target="_blank" rel="noopener noreferrer" className="text-[#b8707e] hover:text-[#e8dde0] underline decoration-[#b8707e]/30 underline-offset-4 transition-colors">Manazil al-Qamar</a>) represent one of humanity's
             oldest systems for tracking celestial time and understanding cosmic
             influences. This art series honors that tradition while making it
             accessible to contemporary seekers of wisdom.
