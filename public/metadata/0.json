@@ -1,7 +1,7 @@
 {
-    "name": "Manison #01",
+    "name": "Mansion #01",
     "description": "The first mansion marks the beginning of the lunar zodiac, corresponding to the Horns of Aries constellation. Ruled by Mars, it embodies the raw, pioneering energy of spring's first stirrings. This mansion represents the fundamental polarity of initiation and is favorable for beginnings, journeys, and new ventures. The generative artwork features the constellation's authentic star positions including Hamal (Alpha Arietis) and Sheratan (Beta Arietis), rendered in Mars' fiery crimson palette with dynamic sacred geometry.",
-    "image": "https://bafybeie7smqgvbg2jw6zwq5vr5fmp4eqpeo6d35n5v2ckpspwce5rjyegi.ipfs.w3s.link/0.gif",
+    "image": "https://mansions.vercel.app/0.gif",
     "attributes": [
         {
             "trait_type": "Name",

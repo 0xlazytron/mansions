@@ -1,7 +1,7 @@
 {
-    "name": "Manison #03",
+    "name": "Mansion #03",
     "description": "The most celebrated mansion in Islamic astrology, Al-Thuraiya corresponds directly to the Pleiades, the 'Seven Sisters' star cluster. Ruled by the Moon at her most luminous, this mansion embodies celestial favor and divine blessing. The generative artwork renders all seven sisters - Alcyone, Atlas, Electra, Maia, Merope, Taygeta, and Pleione - in lunar silver-white radiance with ethereal geometry representing the flow of baraka (divine blessing) from heaven to earth.",
-    "image": "https://bafybeie7smqgvbg2jw6zwq5vr5fmp4eqpeo6d35n5v2ckpspwce5rjyegi.ipfs.w3s.link/2.gif",
+    "image": "https://mansions.vercel.app/2.gif",
     "attributes": [
         {
             "trait_type": "Name",
