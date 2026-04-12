@@ -59,10 +59,10 @@ function CollectionCard({
                 Fixed Price
               </p>
               <p className="text-[#e8dde0] font-black text-xl md:text-2xl font-cormorant leading-none">
-                {card.price}
+                0.05 ETH
               </p>
               <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold tracking-tight">
-                {card.priceUSD}
+                Per NFT
               </p>
             </div>
 
@@ -151,7 +151,7 @@ export function PopularCollectionSection() {
             onClick={() => setShowAll(!showAll)}
             className="hidden sm:block text-[#b8707e] hover:text-[#e8dde0] transition-all text-sm md:text-base font-black uppercase tracking-[0.2em] underline decoration-[#4a3540] underline-offset-8 decoration-2 flex-shrink-0"
           >
-            {showAll ? "Display All" : "Display Less"}
+            {showAll ? "Display Less" : "Display All"}
           </button>
         </div>
       </div>
@@ -221,7 +221,7 @@ export function PopularCollectionSection() {
           onClick={() => setShowAll(!showAll)}
           className="text-[#b8707e] hover:text-[#e8dde0] transition-colors text-sm font-black uppercase tracking-widest underline decoration-[#4a3540] underline-offset-8 decoration-2"
         >
-          {showAll ? "Display All" : "Display Less"}
+          {showAll ? "Display Less" : "Display All"}
         </button>
       </div>
       <MintModal

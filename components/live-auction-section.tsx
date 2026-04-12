@@ -123,10 +123,10 @@ function AuctionCardComponent({
               Fixed Price
             </p>
             <p className="text-[#e8dde0] font-black text-xl md:text-2xl font-cormorant leading-none">
-              {card.price}
+              0.05 ETH
             </p>
             <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold">
-              {card.priceUSD}
+              Per NFT
             </p>
           </div>
           {isFeatured && (
@@ -334,20 +334,34 @@ export function LiveAuctionSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <button
                 onClick={handleShopNow}
-                className="bg-gradient-to-r from-[#4a3540] to-[#2a2123] hover:from-[#6b4555] hover:to-[#3b2b30] text-[#e8dde0] font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all hover:-translate-y-1 text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border border-[#7a4a58]/50 shadow-[0_10px_25px_rgba(122,74,88,0.3)]"
+                className="bg-gradient-to-r from-[#4a3540] to-[#2a2123] hover:from-[#6b4555] hover:to-[#3b2b30] text-[#e8dde0] font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all hover:-translate-y-1 text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border border-[#7a4a58]/50 shadow-[0_10px_25px_rgba(122,74,88,0.3)] inline-flex items-center justify-center gap-3"
               >
                 Explore Collection
-              </button>
-              <button
-                onClick={() => handleBuyNowAction()}
-                disabled={!isAgreed}
-                className={`font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl transition-all text-sm md:text-base w-full sm:w-auto uppercase tracking-widest border-2 ${
-                  isAgreed
-                    ? "border-[#4a3540] text-[#e8dde0] hover:bg-[#4a3540]/20 hover:-translate-y-1 shadow-[0_10px_20px_rgba(122,74,88,0.1)]"
-                    : "border-gray-800 text-gray-700 cursor-not-allowed opacity-50"
-                }`}
-              >
-                Buy Now
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  className="opacity-90"
+                >
+                  <path
+                    d="M16 2.5C8.544 2.5 2.5 8.544 2.5 16C2.5 23.456 8.544 29.5 16 29.5C23.456 29.5 29.5 23.456 29.5 16C29.5 8.544 23.456 2.5 16 2.5Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M20.7 20.2C19.4 21.2 18.1 21.7 16 21.7C13.9 21.7 12.6 21.2 11.3 20.2C10.1 19.2 9.3 17.7 9.3 16.1C9.3 14.2 10.4 12.5 12.1 11.6C12.6 11.4 13.2 11.2 13.8 11.1C14.2 9.7 15.5 8.7 17 8.7C18.7 8.7 20.2 10 20.3 11.8C22 12.7 22.7 14.3 22.7 16.1C22.7 17.7 21.9 19.2 20.7 20.2Z"
+                    fill="currentColor"
+                    fillOpacity="0.85"
+                  />
+                  <path
+                    d="M12.8 20.1L14.2 16.4L16 17.7L18.5 15.3L19.4 16.5L16.6 19.1L15.2 18.1L14.1 21.1L12.8 20.1Z"
+                    fill="#1a1517"
+                    fillOpacity="0.9"
+                  />
+                </svg>
               </button>
             </div>
           </div>

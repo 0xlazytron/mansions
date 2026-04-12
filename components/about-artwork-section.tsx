@@ -27,7 +27,7 @@ export function AboutArtworkSection() {
             Every piece features the authentic constellation coordinates from
             astronomical catalogs, rendered as glowing stars in their true
             positions. The color palettes are drawn from traditional planetary
-            correspondences—warm reds and oranges for Mars-ruled mansions, cool
+            correspondences warm reds and oranges for Mars-ruled mansions, cool
             blues and purples for Saturn, golden yellows for the Sun, and so on.
           </p>
 
@@ -36,7 +36,7 @@ export function AboutArtworkSection() {
             Flower of Life to Metatron's Cube, symbolizing the mathematical
             harmony underlying celestial movements. The artworks are animated,
             creating living mandalas that pulse and flow with mystical
-            energy—just as the moon itself moves through its endless cycle.
+            energy just as the moon itself moves through its endless cycle.
             These animations are designed to be meditative, inviting you to
             contemplate the cosmic rhythms and find moments of stillness and
             reflection.

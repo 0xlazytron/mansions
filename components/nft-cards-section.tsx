@@ -101,10 +101,13 @@ function NFTCardComponent({
       <div className="px-6 pb-6 flex justify-between items-center">
         <div>
           <p className="text-[#9a8588] text-[9px] uppercase font-black tracking-[0.2em] mb-1">
-            Reserve Price
+            Fixed Price
           </p>
           <p className="text-[#e8dde0] font-black text-xl font-cormorant leading-none">
-            {card.price}
+            0.05 ETH
+          </p>
+          <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold tracking-tight">
+            Per NFT
           </p>
         </div>
         <button className="bg-gradient-to-r from-[#4a3540] to-[#2a2123] hover:from-[#6b4555] hover:to-[#3b2b30] text-[#e8dde0] text-[10px] font-black px-5 py-2.5 rounded-2xl uppercase tracking-[0.15em] transition-all border border-[#7a4a58]/50 shadow-[0_5px_15px_rgba(122,74,88,0.3)] group-hover:shadow-[0_8px_20px_rgba(122,74,88,0.4)] group-hover:-translate-y-0.5 active:translate-y-0">
