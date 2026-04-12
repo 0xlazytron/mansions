@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { nftCards } from "@/data/nfts";
 import type { NFTCard } from "@/data/nfts";
 import { MintModal } from "./mint-modal";
 import { useTerms } from "@/context/terms-context";
+import {
+  createPublicClient,
+  formatEther,
+  http,
+  type Address,
+} from "viem";
+import { mainnet, sepolia } from "viem/chains";
 
 // Extended props for UI
 interface NFTCardUI extends NFTCard {
@@ -46,9 +53,11 @@ function VerifiedBadge() {
 function NFTCardComponent({
   card,
   onMint,
+  mintPriceLabel,
 }: {
   card: NFTCardUI;
   onMint: (nft: NFTCard) => boolean;
+  mintPriceLabel: string;
 }) {
   const handleClick = () => {
     if (!onMint(card)) return;
@@ -104,7 +113,7 @@ function NFTCardComponent({
             Fixed Price
           </p>
           <p className="text-[#e8dde0] font-black text-xl font-cormorant leading-none">
-            0.05 ETH
+            {mintPriceLabel}
           </p>
           <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold tracking-tight">
             Per NFT
@@ -121,6 +130,52 @@ function NFTCardComponent({
 export function NFTCardsSection() {
   const { checkAgreement } = useTerms();
   const [mintingNft, setMintingNft] = useState<NFTCard | null>(null);
+  const [mintPriceLabel, setMintPriceLabel] = useState("0.005 ETH");
+
+  const env = useMemo(() => {
+    const contractAddress = process.env
+      .NEXT_PUBLIC_CONTRACT_ADDRESS as Address | undefined;
+    const chainIdRaw = process.env.NEXT_PUBLIC_CHAIN_ID;
+    const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL;
+    const chainId = chainIdRaw ? Number(chainIdRaw) : NaN;
+    return { contractAddress, chainId, rpcUrl };
+  }, []);
+
+  const chain = useMemo(() => {
+    if (env.chainId === sepolia.id) return sepolia;
+    if (env.chainId === mainnet.id) return mainnet;
+    return null;
+  }, [env.chainId]);
+
+  useEffect(() => {
+    const contractAddress = env.contractAddress;
+    const rpcUrl = env.rpcUrl;
+    if (!contractAddress || !rpcUrl || !chain) return;
+    const publicClient = createPublicClient({
+      chain,
+      transport: http(rpcUrl),
+    });
+    (async () => {
+      try {
+        const priceWei = await publicClient.readContract({
+          address: contractAddress,
+          abi: [
+            {
+              type: "function",
+              name: "mintPrice",
+              stateMutability: "view",
+              inputs: [],
+              outputs: [{ name: "", type: "uint256" }],
+            },
+          ] as const,
+          functionName: "mintPrice",
+        });
+        setMintPriceLabel(`${formatEther(priceWei)} ETH`);
+      } catch {
+        setMintPriceLabel("0.005 ETH");
+      }
+    })();
+  }, [env.contractAddress, env.rpcUrl, chain]);
 
   const handleMintAttempt = (card: NFTCard) => {
     if (!checkAgreement()) return false;
@@ -154,7 +209,11 @@ export function NFTCardsSection() {
         >
           {sectionCards.map((card) => (
             <div key={card.id} className="flex-shrink-0 snap-center">
-              <NFTCardComponent card={card} onMint={handleMintAttempt} />
+              <NFTCardComponent
+                card={card}
+                onMint={handleMintAttempt}
+                mintPriceLabel={mintPriceLabel}
+              />
             </div>
           ))}
         </div>
@@ -173,6 +232,7 @@ export function NFTCardsSection() {
               <NFTCardComponent
                 card={sectionCards[0]}
                 onMint={handleMintAttempt}
+                mintPriceLabel={mintPriceLabel}
               />
             </div>
 
@@ -184,6 +244,7 @@ export function NFTCardsSection() {
               <NFTCardComponent
                 card={sectionCards[2]}
                 onMint={handleMintAttempt}
+                mintPriceLabel={mintPriceLabel}
               />
             </div>
 
@@ -195,6 +256,7 @@ export function NFTCardsSection() {
               <NFTCardComponent
                 card={sectionCards[1]}
                 onMint={handleMintAttempt}
+                mintPriceLabel={mintPriceLabel}
               />
             </div>
           </div>

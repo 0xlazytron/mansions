@@ -18,10 +18,9 @@ import {
   custom,
   formatEther,
   http,
-  parseEther,
   type Address,
 } from "viem";
-import { sepolia } from "viem/chains";
+import { mainnet, sepolia } from "viem/chains";
 
 interface MintModalProps {
   isOpen: boolean;
@@ -70,6 +69,7 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
   const [txHash, setTxHash] = useState<`0x${string}` | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pricePaidWei, setPricePaidWei] = useState<bigint | null>(null);
+  const [mintPriceWei, setMintPriceWei] = useState<bigint | null>(null);
   const startedRef = useRef(false);
 
   const env = useMemo(() => {
@@ -87,6 +87,12 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
     };
   }, []);
 
+  const chain = useMemo(() => {
+    if (env.chainId === sepolia.id) return sepolia;
+    if (env.chainId === mainnet.id) return mainnet;
+    return null;
+  }, [env.chainId]);
+
   useEffect(() => {
     if (!isOpen) {
       startedRef.current = false;
@@ -94,29 +100,63 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
       setTxHash(null);
       setError(null);
       setPricePaidWei(null);
+      setMintPriceWei(null);
       return;
     }
 
     setStatus(isConnected ? "switching_network" : "needs_wallet");
   }, [isOpen, isConnected, nft.id]);
 
-  const ensureSepolia = async () => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const contractAddress = env.contractAddress;
+    const rpcUrl = env.rpcUrl;
+    if (!contractAddress || !rpcUrl || !chain) return;
+
+    const publicClient = createPublicClient({
+      chain,
+      transport: http(rpcUrl),
+    });
+
+    (async () => {
+      try {
+        const onchainMintPrice = await publicClient.readContract({
+          address: contractAddress,
+          abi: mansionsAbi,
+          functionName: "mintPrice",
+        });
+        setMintPriceWei(onchainMintPrice);
+      } catch {
+        setMintPriceWei(null);
+      }
+    })();
+  }, [isOpen, env.contractAddress, env.rpcUrl, chain]);
+
+  const ensureChain = async () => {
     if (typeof window === "undefined") throw new Error("Wallet unavailable.");
     if (!window.ethereum) throw new Error("No wallet found.");
+    if (!Number.isFinite(env.chainId)) {
+      throw new Error("Missing/invalid NEXT_PUBLIC_CHAIN_ID.");
+    }
 
-    const sepoliaChainId = "0xaa36a7";
+    const chainIdHex = `0x${env.chainId.toString(16)}`;
 
     try {
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: sepoliaChainId }],
+        params: [{ chainId: chainIdHex }],
       });
     } catch (switchErr: any) {
       if (switchErr?.code !== 4902) throw switchErr;
 
       if (!env.rpcUrl) {
         throw new Error(
-          "Missing NEXT_PUBLIC_RPC_URL (required to add Sepolia network).",
+          "Missing NEXT_PUBLIC_RPC_URL (required to add the target network).",
+        );
+      }
+      if (!chain) {
+        throw new Error(
+          `Unsupported chain id ${env.chainId}. Add it to the frontend chain mapping.`,
         );
       }
 
@@ -124,15 +164,17 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
         method: "wallet_addEthereumChain",
         params: [
           {
-            chainId: sepoliaChainId,
-            chainName: "Sepolia",
+            chainId: chainIdHex,
+            chainName: chain.name,
             rpcUrls: [env.rpcUrl],
             nativeCurrency: {
-              name: "SepoliaETH",
-              symbol: "ETH",
-              decimals: 18,
+              name: chain.nativeCurrency.name,
+              symbol: chain.nativeCurrency.symbol,
+              decimals: chain.nativeCurrency.decimals,
             },
-            blockExplorerUrls: ["https://sepolia.etherscan.io"],
+            blockExplorerUrls: [
+              chain.blockExplorers?.default.url ?? "https://etherscan.io",
+            ],
           },
         ],
       });
@@ -140,31 +182,30 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
   };
 
   const doMint = async () => {
-    if (!env.contractAddress) {
+    const contractAddress = env.contractAddress;
+    const rpcUrl = env.rpcUrl;
+
+    if (!contractAddress) {
       throw new Error("Missing NEXT_PUBLIC_CONTRACT_ADDRESS.");
     }
     if (!Number.isFinite(env.chainId)) {
       throw new Error("Missing/invalid NEXT_PUBLIC_CHAIN_ID.");
     }
-    if (!env.rpcUrl) {
+    if (!rpcUrl) {
       throw new Error("Missing NEXT_PUBLIC_RPC_URL.");
     }
-    if (env.chainId !== sepolia.id) {
-      throw new Error(
-        `App is configured for chain ${env.chainId}, but this contract integration expects Sepolia (${sepolia.id}).`,
-      );
-    }
+    if (!chain) throw new Error(`Unsupported chain id ${env.chainId}.`);
     if (typeof window === "undefined" || !window.ethereum) {
       throw new Error("No injected wallet found.");
     }
 
     const publicClient = createPublicClient({
-      chain: sepolia,
-      transport: http(env.rpcUrl),
+      chain,
+      transport: http(rpcUrl),
     });
 
     const walletClient = createWalletClient({
-      chain: sepolia,
+      chain,
       transport: custom(window.ethereum),
     });
 
@@ -172,12 +213,12 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
 
     const [mintingActive, onchainMintPrice] = await Promise.all([
       publicClient.readContract({
-        address: env.contractAddress,
+        address: contractAddress,
         abi: mansionsAbi,
         functionName: "mintingActive",
       }),
       publicClient.readContract({
-        address: env.contractAddress,
+        address: contractAddress,
         abi: mansionsAbi,
         functionName: "mintPrice",
       }),
@@ -187,16 +228,15 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
       throw new Error("Minting is not active.");
     }
 
-    const uiMintPrice = parseEther("0.05");
-    const pricePerNft = onchainMintPrice > uiMintPrice ? onchainMintPrice : uiMintPrice;
-    const value = pricePerNft * quantity;
+    setMintPriceWei(onchainMintPrice);
+    const value = onchainMintPrice * quantity;
 
     const [account] = await walletClient.getAddresses();
     if (!account) throw new Error("Wallet not connected.");
 
     const hash = await walletClient.writeContract({
       account,
-      address: env.contractAddress,
+      address: contractAddress,
       abi: mansionsAbi,
       functionName: "mint",
       args: [quantity],
@@ -220,7 +260,7 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
     (async () => {
       try {
         setError(null);
-        await ensureSepolia();
+        await ensureChain();
         setStatus("pending_signature");
         await doMint();
         setStatus("success");
@@ -245,10 +285,17 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
     return "";
   }, [status]);
 
-  const txUrl = txHash ? `https://sepolia.etherscan.io/tx/${txHash}` : null;
+  const txUrl =
+    txHash && chain?.blockExplorers?.default.url
+      ? `${chain.blockExplorers.default.url}/tx/${txHash}`
+      : txHash
+        ? `https://etherscan.io/tx/${txHash}`
+        : null;
   const pricePaidLabel = pricePaidWei
     ? `${formatEther(pricePaidWei)} ETH`
-    : "0.05 ETH";
+    : mintPriceWei
+      ? `${formatEther(mintPriceWei)} ETH`
+      : "—";
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -389,8 +436,8 @@ export function MintModal({ isOpen, onClose, nft }: MintModalProps) {
                 rel="noopener noreferrer"
                 aria-disabled={!txUrl}
                 className={`flex items-center justify-center gap-2 bg-[#2a2123]/50 text-[#e8dde0] font-bold py-4 rounded-2xl transition-all border border-[#4a3540]/50 group ${txUrl
-                    ? "hover:bg-[#2a2123]/80"
-                    : "opacity-50 pointer-events-none"
+                  ? "hover:bg-[#2a2123]/80"
+                  : "opacity-50 pointer-events-none"
                   }`}
               >
                 View Details

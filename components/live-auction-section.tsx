@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { nftCards } from "@/data/nfts";
 import type { NFTCard } from "@/data/nfts";
 import { MintModal } from "./mint-modal";
 import { useTerms } from "@/context/terms-context";
+import {
+  createPublicClient,
+  formatEther,
+  http,
+  type Address,
+} from "viem";
+import { mainnet, sepolia } from "viem/chains";
 
 // Extended interface for UI-specific props not in the data model
 interface AuctionCardUI extends NFTCard {
@@ -62,10 +69,12 @@ function AuctionCardComponent({
   card,
   isFeatured,
   onMint,
+  mintPriceLabel,
 }: {
   card: AuctionCardUI;
   isFeatured: boolean;
   onMint: (nft: NFTCard) => void;
+  mintPriceLabel: string;
 }) {
   const handleBuyNow = () => {
     onMint(card);
@@ -73,11 +82,10 @@ function AuctionCardComponent({
 
   return (
     <div
-      className={`relative rounded-[2.5rem] overflow-hidden bg-[#1a1517]/40 backdrop-blur-xl border border-[#4a3540]/20 cursor-pointer transition-all duration-500 group ${
-        isFeatured
-          ? "w-full sm:w-[300px] md:w-[340px] shadow-[0_15px_35px_rgba(122,74,88,0.3)]"
-          : "w-[240px] md:w-[280px] shadow-[0_8px_20px_rgba(0,0,0,0.3)] opacity-80"
-      } hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(122,74,88,0.4)] hover:opacity-100`}
+      className={`relative rounded-[2.5rem] overflow-hidden bg-[#1a1517]/40 backdrop-blur-xl border border-[#4a3540]/20 cursor-pointer transition-all duration-500 group ${isFeatured
+        ? "w-full sm:w-[300px] md:w-[340px] shadow-[0_15px_35px_rgba(122,74,88,0.3)]"
+        : "w-[240px] md:w-[280px] shadow-[0_8px_20px_rgba(0,0,0,0.3)] opacity-80"
+        } hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(122,74,88,0.4)] hover:opacity-100`}
       onClick={handleBuyNow}
     >
       {/* Glow highlight */}
@@ -123,7 +131,7 @@ function AuctionCardComponent({
               Fixed Price
             </p>
             <p className="text-[#e8dde0] font-black text-xl md:text-2xl font-cormorant leading-none">
-              0.05 ETH
+              {mintPriceLabel}
             </p>
             <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold">
               Per NFT
@@ -180,11 +188,10 @@ function CheckboxAgreement({
       onClick={onToggle}
     >
       <div
-        className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-all border ${
-          checked
-            ? "bg-gradient-to-br from-[#4a3540] to-[#b8707e] border-transparent shadow-[0_0_15px_rgba(184,112,126,0.4)]"
-            : "bg-[#1a1517]/60 border-[#4a3540]/60 hover:border-[#b8707e]/60"
-        }`}
+        className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-all border ${checked
+          ? "bg-gradient-to-br from-[#4a3540] to-[#b8707e] border-transparent shadow-[0_0_15px_rgba(184,112,126,0.4)]"
+          : "bg-[#1a1517]/60 border-[#4a3540]/60 hover:border-[#b8707e]/60"
+          }`}
       >
         {checked && (
           <svg
@@ -221,6 +228,52 @@ export function LiveAuctionSection() {
   const { isAgreed, setIsAgreed, checkAgreement } = useTerms();
   const [mintingNft, setMintingNft] = useState<NFTCard | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
+  const [mintPriceLabel, setMintPriceLabel] = useState("0.005 ETH");
+
+  const env = useMemo(() => {
+    const contractAddress = process.env
+      .NEXT_PUBLIC_CONTRACT_ADDRESS as Address | undefined;
+    const chainIdRaw = process.env.NEXT_PUBLIC_CHAIN_ID;
+    const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL;
+    const chainId = chainIdRaw ? Number(chainIdRaw) : NaN;
+    return { contractAddress, chainId, rpcUrl };
+  }, []);
+
+  const chain = useMemo(() => {
+    if (env.chainId === sepolia.id) return sepolia;
+    if (env.chainId === mainnet.id) return mainnet;
+    return null;
+  }, [env.chainId]);
+
+  useEffect(() => {
+    const contractAddress = env.contractAddress;
+    const rpcUrl = env.rpcUrl;
+    if (!contractAddress || !rpcUrl || !chain) return;
+    const publicClient = createPublicClient({
+      chain,
+      transport: http(rpcUrl),
+    });
+    (async () => {
+      try {
+        const priceWei = await publicClient.readContract({
+          address: contractAddress,
+          abi: [
+            {
+              type: "function",
+              name: "mintPrice",
+              stateMutability: "view",
+              inputs: [],
+              outputs: [{ name: "", type: "uint256" }],
+            },
+          ] as const,
+          functionName: "mintPrice",
+        });
+        setMintPriceLabel(`${formatEther(priceWei)} ETH`);
+      } catch {
+        setMintPriceLabel("0.005 ETH");
+      }
+    })();
+  }, [env.contractAddress, env.rpcUrl, chain]);
 
   const featuredCard = liveAuctionCards[liveAuctionCards.length - 1];
   const sideCards = liveAuctionCards.slice(0, -1);
@@ -252,6 +305,7 @@ export function LiveAuctionSection() {
                 card={featuredCard}
                 isFeatured={true}
                 onMint={handleBuyNowAction}
+                mintPriceLabel={mintPriceLabel}
               />
             </div>
 
@@ -271,6 +325,7 @@ export function LiveAuctionSection() {
                     card={card}
                     isFeatured={false}
                     onMint={handleBuyNowAction}
+                    mintPriceLabel={mintPriceLabel}
                   />
                 </div>
               ))}
@@ -284,6 +339,7 @@ export function LiveAuctionSection() {
                   card={featuredCard}
                   isFeatured={true}
                   onMint={handleBuyNowAction}
+                  mintPriceLabel={mintPriceLabel}
                 />
               </div>
             </div>

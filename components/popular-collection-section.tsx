@@ -1,16 +1,25 @@
 "use client";
-import { useState, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { nftCards, type NFTCard } from "@/data/nfts";
 import { MintModal } from "./mint-modal";
 import { useTerms } from "@/context/terms-context";
+import {
+  createPublicClient,
+  formatEther,
+  http,
+  type Address,
+} from "viem";
+import { mainnet, sepolia } from "viem/chains";
 function CollectionCard({
   card,
   onClick,
+  mintPriceLabel,
 }: {
   card: NFTCard;
   onClick: (card: NFTCard) => void;
+  mintPriceLabel: string;
 }) {
   return (
     <div
@@ -59,7 +68,7 @@ function CollectionCard({
                 Fixed Price
               </p>
               <p className="text-[#e8dde0] font-black text-xl md:text-2xl font-cormorant leading-none">
-                0.05 ETH
+                {mintPriceLabel}
               </p>
               <p className="text-[#9a8588]/60 text-[10px] mt-1 font-bold tracking-tight">
                 Per NFT
@@ -91,6 +100,52 @@ export function PopularCollectionSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const [mintingNft, setMintingNft] = useState<NFTCard | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [mintPriceLabel, setMintPriceLabel] = useState("0.005 ETH");
+
+  const env = useMemo(() => {
+    const contractAddress = process.env
+      .NEXT_PUBLIC_CONTRACT_ADDRESS as Address | undefined;
+    const chainIdRaw = process.env.NEXT_PUBLIC_CHAIN_ID;
+    const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL;
+    const chainId = chainIdRaw ? Number(chainIdRaw) : NaN;
+    return { contractAddress, chainId, rpcUrl };
+  }, []);
+
+  const chain = useMemo(() => {
+    if (env.chainId === sepolia.id) return sepolia;
+    if (env.chainId === mainnet.id) return mainnet;
+    return null;
+  }, [env.chainId]);
+
+  useEffect(() => {
+    const contractAddress = env.contractAddress;
+    const rpcUrl = env.rpcUrl;
+    if (!contractAddress || !rpcUrl || !chain) return;
+    const publicClient = createPublicClient({
+      chain,
+      transport: http(rpcUrl),
+    });
+    (async () => {
+      try {
+        const priceWei = await publicClient.readContract({
+          address: contractAddress,
+          abi: [
+            {
+              type: "function",
+              name: "mintPrice",
+              stateMutability: "view",
+              inputs: [],
+              outputs: [{ name: "", type: "uint256" }],
+            },
+          ] as const,
+          functionName: "mintPrice",
+        });
+        setMintPriceLabel(`${formatEther(priceWei)} ETH`);
+      } catch {
+        setMintPriceLabel("0.005 ETH");
+      }
+    })();
+  }, [env.contractAddress, env.rpcUrl, chain]);
 
   // Calculate pages dynamically based on active cards
   // Assuming ~3 cards per view on bigger screens
@@ -165,7 +220,11 @@ export function PopularCollectionSection() {
               key={card.id}
               className="flex justify-center transition-all duration-500 hover:z-30 hover:scale-105"
             >
-              <CollectionCard card={card} onClick={handleCardClick} />
+              <CollectionCard
+                card={card}
+                onClick={handleCardClick}
+                mintPriceLabel={mintPriceLabel}
+              />
             </div>
           ))}
         </div>
@@ -188,7 +247,11 @@ export function PopularCollectionSection() {
               key={card.id}
               className="flex-shrink-0 transition-all duration-500 hover:z-30 hover:scale-105"
             >
-              <CollectionCard card={card} onClick={handleCardClick} />
+              <CollectionCard
+                card={card}
+                onClick={handleCardClick}
+                mintPriceLabel={mintPriceLabel}
+              />
             </div>
           ))}
 
@@ -204,11 +267,10 @@ export function PopularCollectionSection() {
             <button
               key={index}
               onClick={() => scrollToPage(index + 1)}
-              className={`w-3 h-3 md:w-3.5 md:h-3.5 rounded-full transition-all duration-500 border border-[#4a3540]/40 ${
-                currentPage === index + 1
-                  ? "bg-[#b8707e] scale-125 shadow-[0_0_15px_rgba(184,112,126,0.6)]"
-                  : "bg-[#1a1517] hover:bg-[#4a3540]/40"
-              }`}
+              className={`w-3 h-3 md:w-3.5 md:h-3.5 rounded-full transition-all duration-500 border border-[#4a3540]/40 ${currentPage === index + 1
+                ? "bg-[#b8707e] scale-125 shadow-[0_0_15px_rgba(184,112,126,0.6)]"
+                : "bg-[#1a1517] hover:bg-[#4a3540]/40"
+                }`}
               aria-label={`Go to page ${index + 1}`}
             />
           ))}
