@@ -1,0 +1,52 @@
+{
+    "name": "Manison #01",
+    "description": "The first mansion marks the beginning of the lunar zodiac, corresponding to the Horns of Aries constellation. Ruled by Mars, it embodies the raw, pioneering energy of spring's first stirrings. This mansion represents the fundamental polarity of initiation and is favorable for beginnings, journeys, and new ventures. The generative artwork features the constellation's authentic star positions including Hamal (Alpha Arietis) and Sheratan (Beta Arietis), rendered in Mars' fiery crimson palette with dynamic sacred geometry.",
+    "image": "https://bafybeie7smqgvbg2jw6zwq5vr5fmp4eqpeo6d35n5v2ckpspwce5rjyegi.ipfs.w3s.link/0.gif",
+    "attributes": [
+        {
+            "trait_type": "Name",
+            "value": "Al-Sharatain الشرطان"
+        },
+        {
+            "trait_type": "Meaning",
+            "value": "The Two Signs"
+        },
+        {
+            "trait_type": "Planetary Ruler",
+            "value": "Mars (Ares)"
+        },
+        {
+            "trait_type": "Constellation",
+            "value": "Horns of Aries"
+        },
+        {
+            "trait_type": "Element",
+            "value": "Fire"
+        },
+        {
+            "trait_type": "Favorable For",
+            "value": "Beginnings, journeys, new projects"
+        },
+        {
+            "trait_type": "Created By",
+            "value": "@m3th1ld3"
+        },
+        {
+            "trait_type": "Background",
+            "value": "scifi black"
+        },
+        {
+            "trait_type": "Resolution",
+            "value": "800x800"
+        },
+        {
+            "trait_type": "Aspect Ratio",
+            "value": 1.0
+        },
+        {
+            "trait_type": "Style",
+            "value": "Sci-Fi Galaxy"
+        }
+    ],
+    "edition": 1
+}
