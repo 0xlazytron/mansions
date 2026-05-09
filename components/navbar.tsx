@@ -56,6 +56,7 @@ export function Navbar() {
         <button
           onClick={() => scrollToSection("home")}
           className="flex items-center gap-2"
+
         >
           <div className="w-10 h-10 relative overflow-hidden rounded-lg">
             <Image
