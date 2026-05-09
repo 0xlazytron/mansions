@@ -45,11 +45,10 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6 md:px-10 lg:px-16 py-4 ${
-        isScrolled
-          ? "bg-[#1a1517]/80 backdrop-blur-xl border-b border-[#4a3540]/40 py-3 shadow-lg"
-          : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6 md:px-10 lg:px-16 py-4 ${isScrolled
+        ? "bg-[#1a1517]/80 backdrop-blur-xl border-b border-[#4a3540]/40 py-3 shadow-lg"
+        : "bg-transparent py-5"
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -115,7 +114,7 @@ export function Navbar() {
           >
             Collection
           </button>
-          <button
+          {/* <button
             onClick={() => scrollToSection("auctions")}
             className="transition-colors text-sm font-medium"
             style={{ color: "#c4a5ab" }}
@@ -127,7 +126,7 @@ export function Navbar() {
             }}
           >
             Auctions
-          </button>
+          </button> */}
           <button
             onClick={() => scrollToSection("join-team")}
             className="transition-colors text-sm font-medium"

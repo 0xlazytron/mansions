@@ -31,7 +31,7 @@ export default function Home() {
         <section id="how-it-works">
           <HowItWorksSection />
         </section>
-        <LiveAuctionSection />
+        {/* <LiveAuctionSection /> */}
         <section id="collections">
           <PopularCollectionSection />
         </section>
