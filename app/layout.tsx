@@ -12,24 +12,10 @@ const _cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Mansions Sales",
-  description: "Discover and collect extraordinary NFTs",
-
+  title: "Mansions of the Moon",
+  description: "A 28-piece generative art collection exploring the lunar mansions (Manazil al-Qamar) as an astrological system, by M3th1ld3.",
   icons: {
-    icon: [
-      {
-        url: "/logo.jpg",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/logo.jpg",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/logo.jpg",
-        type: "image/jpeg",
-      },
-    ],
+    icon: "/favicon.ico",
     apple: "/logo.jpg",
   },
 };

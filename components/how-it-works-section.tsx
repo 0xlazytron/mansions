@@ -5,23 +5,23 @@ const steps = [
     icon: Wallet,
     title: "CONNECT WALLET",
     description:
-      "Connect your digital wallet to the NFT Mansions platform to get started.",
+      "Connect your digital wallet to the Mansions of the Moon platform to get started.",
   },
   {
     icon: LayoutGrid,
     title: "CHOOSE MANSIONS",
-    description: "Browse and select the unique Mansions you want to mint.",
+    description: "Browse and select the unique lunar mansion you want to mint.",
   },
   {
     icon: Zap,
     title: "MINT NFT",
     description:
-      "Confirm the transaction in your wallet to secure your unique Mansions.",
+      "Confirm the transaction in your wallet to secure your unique lunar mansion.",
   },
   {
     icon: CheckCircle,
     title: "VIEW IN COLLECTION",
-    description: "View your newly minted Mansions in your collection.",
+    description: "View your newly minted lunar mansion in your collection.",
   },
 ];
 
@@ -44,8 +44,8 @@ export function HowItWorksSection() {
 
         {/* Subtitle */}
         <p className="text-[#9a8588] max-w-2xl mx-auto mb-16 md:mb-24 leading-relaxed text-sm md:text-base px-4 font-medium uppercase tracking-widest opacity-80">
-          Ready to join the NFT Mansions universe? Follow these simple steps to
-          mint your very own unique Mansions NFT.
+          Ready to join the Mansions of the Moon collection? Follow these simple steps to
+          mint your very own unique lunar mansion NFT.
         </p>
 
         {/* Steps */}

@@ -46,15 +46,17 @@ export function HeroSection() {
         {/* Center Content */}
         <div className="text-center z-20 pt-8 md:pt-12 px-4 w-full max-w-[100vw]">
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant"
-            style={{ color: "#d4a5ae" }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-wider mb-4 leading-none font-cormorant bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(135deg, #d4a5ae 0%, #c9a0b0 25%, #9a94c0 60%, #7b8ab8 100%)",
+            }}
           >
-            Mansions
+            MANSIONS
           </h1>
           <div className="flex flex-col items-center justify-center gap-6 mb-10 md:mb-14">
             <div className="flex items-center justify-center gap-0">
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black px-4 md:px-6 py-2 -rotate-3 inline-block font-cormorant"
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light px-4 md:px-6 py-2 -rotate-3 inline-block font-cormorant"
                 style={{
                   backgroundColor: "rgba(122, 74, 88, 0.7)",
                   color: "#e8dde0",
@@ -63,10 +65,12 @@ export function HeroSection() {
                 of the
               </span>
               <span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant"
-                style={{ color: "#ddd0d4" }}
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider ml-4 font-cormorant bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: "linear-gradient(135deg, #ddd0d4 0%, #c4b8cc 35%, #9a94c0 70%, #7b8ab8 100%)",
+                }}
               >
-                Moon
+                MOON
               </span>
             </div>
             <p
@@ -116,7 +120,7 @@ export function HeroSection() {
               style={{ fill: "#9a8588" }}
             >
               <textPath href="#circlePath">
-                • Mint Now • Collect Assets •
+                • Mansions of the Moon • Explore •
               </textPath>
             </text>
           </svg>

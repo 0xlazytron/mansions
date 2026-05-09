@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "How to Mint", href: "#how-it-works" },
+  { label: "How to Mint", href: "#how-to-mint" },
   { label: "Collections", href: "#collections" },
 ];
 
@@ -91,8 +91,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-[#4a3540]/30">
           <p className="text-[#9a8588]/60 text-xs md:text-sm text-center font-medium tracking-wide">
-            © 2026 MANSIONS SALES. All rights reserved. Registered on Ethereum
-            Blockchain.
+            © 2026 Mathilde Grant (M3th1ld3). All rights reserved.
           </p>
         </div>
       </div>
